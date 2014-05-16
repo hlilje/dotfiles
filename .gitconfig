@@ -1,0 +1,7 @@
+[user]
+	name = Hampus Liljekvist
+	email = hlilje@users.noreply.github.com
+[credential]
+	helper = store
+[color]
+	ui = auto
