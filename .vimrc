@@ -1,23 +1,29 @@
 " Maintainer: Hampus Liljekvist
-" Version: 2014-05-15
+" Version: 2014-05-18
 
 """""" Cheat Sheet
-" :g/[x]/d            // search and delete
-" cs"'                // subst " for '
-" ds"                 // remove "
-" ysiw]               // surround text obj iw with []
-" C-x C-O             // omnicompletion (insert mode)
-" C-n                 // suggestions (insert mode)
-" C-x C-f             // filename completion (insert mode)
 " / C-r C-w           // copy word into search box
-" gf                  // open file under cursor
-" viwS"               // visually select word and surround with quotes
+" :args, :argdo       // argument list
+" :g/[x]/d            // search and delete
+" :sort               // sort...
+" ; , (s/S)           // next/prev match for sneak.vim
+" <substitute>/gc     // c for confirmation
+" C-R (reg) [ins]     // copy from reg in ins mode
 " C-W =               // equal window size
 " C-W o               // minimise all other windows
-" C-R (reg) [ins]     // copy from reg in ins mode
+" C-n                 // suggestions (insert mode)
 " C-n [com]           // use multiple cursors
-" ; , (s/S)           // next/prev match for sneak.vim
+" C-o, C-i            // change between cursor pos
+" C-r "               // paste?
+" C-r =               // expression register
+" C-x C-O             // omnicompletion (insert mode)
+" C-x C-f             // filename completion (insert mode)
+" cs"'                // subst " for '
+" ds"                 // remove "
 " ga                  // show character encoding
+" gf                  // open file under cursor
+" viwS"               // visually select word and surround with quotes
+" ysiw]               // surround text obj iw with []
 " zl/zh, zL/zH        // sidescroll
 
 set nocompatible " Enable Vim mode
@@ -67,9 +73,9 @@ endif
 " indent on have to come after them
 """ GitHub
 Bundle 'gmarik/vundle'
+Bundle 'bkad/CamelCaseMotion'
 Bundle 'bling/vim-airline'
 Bundle 'ervandew/supertab'
-"Bundle 'goldfeld/vim-seek'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'justinmk/vim-sneak'
@@ -408,3 +414,10 @@ nnoremap <Leader>tl :TlistToggle<CR>
 " Scroll x chars to the left/right
 nnoremap zl 80zl
 nnoremap zh 80zh
+""" CamelCaseMotion
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e

@@ -128,17 +128,27 @@ export LIBRARY_PATH=/home/hlilje/Dropbox/Education/dkand14/random-algorithm/test
 export C_INCLUDE_PATH=/home/hlilje/Dropbox/Education/dkand14/random-algorithm/test/TestU01/include:${C_INCLUDE_PATH}
 export CPLUS_INCLUDE_PATH=/home/hlilje/Dropbox/Education/dkand14/random-algorithm/test/TestU01/include:${C_INCLUDE_PATH}
 
+### Aliases
+# Easier git access
+alias g="git"
+
+# Easier home access
+alias gh="cd ~"
+
+# Easier dotfiles access
+alias dotfiles="cd ~/Dropbox/dotfiles"
+
 # mvk project shortcut
-alias goto-qwait="cd ~/Dropbox/Education/mvk13/qwait"
+alias qwait="cd ~/Dropbox/Education/mvk13/qwait"
 
 # dkand project shortcut
-alias goto-rand="cd ~/Dropbox/Education/dkand14/random-algorithm"
+alias dkand="cd ~/Dropbox/Education/dkand14/random-algorithm"
 
 # komp project shortcut
-alias goto-komp="cd ~/Dropbox/Education/komp14/compiler"
+alias komp="cd ~/Dropbox/Education/komp14/compiler"
 
 # komp project shortcut
-alias goto-dgi="cd ~/Dropbox/Education/dgi14/project"
+alias dgi="cd ~/Dropbox/Education/dgi14/project"
 
-# start IntelliJ IDEA
+# Start IntelliJ IDEA
 alias idea="/opt/idea-IC-135.480/bin/idea.sh"
