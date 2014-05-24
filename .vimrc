@@ -214,7 +214,7 @@ set listchars=tab:>-,trail:·,eol:$,extends:>,precedes:<,nbsp:_
 let g:ctrlp_cmd = 'CtrlPBuffer' " Use buffer search as default
 
 """ EasyMotion
-"let g:EasyMotion_smartcase = 1 " Match like smartcase for global search
+let g:EasyMotion_smartcase = 1 " Match like smartcase for global search
 
 """ indentLine
 let g:indentLine_faster = 1 " Make it faster
@@ -225,10 +225,10 @@ let g:molokai_original = 0 " Set whether to use the lighter original background
 let g:rehash256 = 1 " Make terminal Vim look similar to the dark gui theme
 
 """ NERDTree(Tabs)
-"let g:nerdtree_tabs_open_on_gui_startup = 0
+"let g:nerdtree_tabs_open_on_gui_startup = 0 " Open on startup
 
 """ sneak.vim
-"let g:sneak#streak = 1 " Use as a minimalist alternative to EasyMotion
+let g:sneak#streak = 1 " Use as a minimalist alternative to EasyMotion
 let g:sneak#s_next = 1 " Use 's' to jump to next match
 let g:sneak#use_ic_scs = 1 " ignorecase/smartcase decides case-sensitivity
 
