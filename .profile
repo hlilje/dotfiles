@@ -21,12 +21,12 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# add go app engine to path
+# Add go app engine to path
 export PATH=/home/hlilje/go_appengine:$PATH
 
-# add TestU01 to path
-export PATH=/home/hlilje/Dropbox/Education/DKAND/random-algorithm/test/TestU01:$PATH
+# Add TestU01 to path
+export PATH=/home/hlilje/Dropbox/Education/dkand14/random-algorithm/test/TestU01:$PATH
 
-# golang
+# Golang
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
