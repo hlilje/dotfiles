@@ -1,30 +1,39 @@
 " Maintainer: Hampus Liljekvist
-" Version: 2014-05-18
+" Version: 2014-06-05
 
 """""" Cheat Sheet
-" / C-r C-w           // copy word into search box
-" :args, :argdo       // argument list
-" :g/[x]/d            // search and delete
-" :sort               // sort...
-" ; , (s/S)           // next/prev match for sneak.vim
-" <substitute>/gc     // c for confirmation
-" C-R (reg) [ins]     // copy from reg in ins mode
-" C-W =               // equal window size
-" C-W o               // minimise all other windows
-" C-n                 // suggestions (insert mode)
-" C-n [com]           // use multiple cursors
-" C-o, C-i            // change between cursor pos
-" C-r "               // paste?
-" C-r =               // expression register
-" C-x C-O             // omnicompletion (insert mode)
-" C-x C-f             // filename completion (insert mode)
-" cs"'                // subst " for '
-" ds"                 // remove "
-" ga                  // show character encoding
-" gf                  // open file under cursor
-" viwS"               // visually select word and surround with quotes
-" ysiw]               // surround text obj iw with []
-" zl/zh, zL/zH        // sidescroll
+" "*(yank/paste)        // access sytem clipboard register
+" (num)|                // go to column (num)
+" / C-r C-w             // copy word into search box
+" :args, :argdo         // argument list
+" :g/[x]/d              // search and delete
+" :on                   // make the current window the only visible
+" <substitute>/gc       // c for confirmation
+" C-R (reg) [i]         // copy from reg in ins mode
+" C-n                   // suggestions (insert mode)
+" C-n [n]               // use multiple cursors
+" C-o                   // return to previous jump
+" C-o, C-i              // change between cursor pos
+" C-r "                 // paste?
+" C-r =                 // expression register
+" C-x C-O               // omnicompletion (insert mode)
+" C-x C-f               // filename completion (insert mode)
+" C-y/e [i]             // insert char above/under cursor
+" K                     // lookup manpage for word under cursor
+" R                     // begin overwriting text
+" ]/[p                  // match indentation when pasting
+" ]]/][                 // beginning/end of next section
+" cs"'                  // subst " for '
+" ds"                   // remove "
+" gJ                    // join line without space
+" ga                    // show character encoding
+" ge/E                  // end of previous word
+" gf                    // open file under cursor
+" gm                    // go to middle of screen line
+" r x                   // replace char with x
+" viwS"                 // visually select word and surround with quotes
+" ysiw]                 // surround text obj iw with []
+" zE                    // delete all folds
 
 set nocompatible " Enable Vim mode
 
@@ -35,7 +44,7 @@ if has("unix")
   runtime! debian.vim
 
   " Vundle settings
-  set rtp+=~/.vim/bundle/vundle/
+  set runtimepath+=~/.vim/bundle/vundle/
   call vundle#rc()
 
   " Set font and font size
@@ -53,7 +62,7 @@ endif
 """""" Windows Specific Settings
 if has("win32")
   " Vundle settings
-  set rtp+=~/vimfiles/bundle/vundle/
+  set runtimepath+=~/vimfiles/bundle/vundle/
   call vundle#rc("~/vimfiles/bundle")
 
   " Function to install Vundle bundles at the right place on Windows
@@ -103,7 +112,7 @@ Bundle 'taglist.vim'
 set langmenu=en_US.UTF-8 " Set the language of the menu (gvim)
 let $LANG = 'en' " Set the language
 """ Spell check
-set spl=en spell
+set spelllang=en spell
 set nospell " Disable by default
 
 """""" Program Stuff
@@ -148,7 +157,7 @@ set nowrap " Disable line wrapping
 set noerrorbells " Disable error bells
 set visualbell " Disables the audio bell and toggles the visual bell
 set t_vb= " Sort of disables the visual bell
-au GUIEnter * set vb t_vb= " Since t_vb must be set after the GUI is loaded
+au GUIEnter * set visualbell t_vb= " Since t_vb must be set after the GUI is loaded
 
 """""" Scrolling
 set scrolloff=8 " Start scrolling when 8 lines away from margins
@@ -209,7 +218,14 @@ set listchars=tab:>-,trail:·,eol:$,extends:>,precedes:<,nbsp:_
 "autocmd VimLeave * execute ':mksession! ~/.vimsession'
 "autocmd VimEnter * execute ':source ~/.vimsession'
 
+"""""" Leader
+" Set the leader key to somewhere reasonable
+let mapleader = ","
+
 """""" Plugin Settings
+""" AutoClose
+let g:AutoCloseExpandSpace = 0 " Disable space to not break abbreviation expansion
+
 """ CtrlP
 let g:ctrlp_cmd = 'CtrlPBuffer' " Use buffer search as default
 
@@ -225,7 +241,7 @@ let g:molokai_original = 0 " Set whether to use the lighter original background
 let g:rehash256 = 1 " Make terminal Vim look similar to the dark gui theme
 
 """ NERDTree(Tabs)
-"let g:nerdtree_tabs_open_on_gui_startup = 0 " Open on startup
+"let g:nerdtree_tabs_open_on_gui_startup = 0 " Disable open on startup
 
 """ sneak.vim
 let g:sneak#streak = 1 " Use as a minimalist alternative to EasyMotion
@@ -319,12 +335,14 @@ if has("gui_running")
   autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call ScreenSave() | endif
 endif
 
+"""""" Abbreviations
+""" Java
+ab syso System.out.println("");<Esc>2hi
+
 """""" Key Bindings
 " Remap Esc to get out of insert mode quickly
 imap jk <Esc>
 imap kj <Esc>
-" Set the leader key to somewhere reasonable
-let mapleader = ","
 " Since ` jumps to the right colum as well it should be easier to reach
 nnoremap ' `
 nnoremap ` '
@@ -358,7 +376,7 @@ nmap <C-t> :tabnew<CR>
 " Write session with F2 and restore with F3
 map <F2> :mksession! ~/.vimsession <CR>
 map <F3> :source ~/.vimsession <CR>
-" Bind omni completion to Ctrl Space
+" Bind omni-completion to Ctrl Space
 inoremap <C-Space> <C-x><C-o>
 """ Mappings for quickly selecting tabs
 imap <A-1> <Esc>:tabn 1<CR>i
@@ -400,7 +418,7 @@ nnoremap <Leader>fa ggVG=
 nnoremap <Leader>cd :cd%:p:h<CR>
 " Hack to close buffer without closing window
 nnoremap <Leader>dd :bp<Bar>sp<Bar>bn<Bar>bd<CR>
-" Wish this worked
+" Wish this worked...
 "nnoremap :w]<CR> <NOP>
 " Convert between line endings
 nnoremap <Leader>ctu :set ff=unix<CR>
@@ -421,3 +439,18 @@ map <silent> e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
 sunmap e
+""" Do more useful things with standard keys in normal mode
+nnoremap <CR> viw
+nnoremap <BS> vap
+" Toggle fold with space, works as normal if no fold
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+" Toggle line wrap
+map <F9> :set wrap!<CR>
+" Keep visually selected text when indenting
+vmap > >gv
+vmap < <gv
+" Remap Ex mode key to just playback from q register instead
+nnoremap Q @q
+" Make Y behave as C and D instead of yanking the entire line
+nnoremap Y y$
