@@ -1,5 +1,5 @@
 " Maintainer: Hampus Liljekvist
-" Version: 2014-06-05
+" Version: 2014-06-07
 
 """""" Cheat Sheet
 " "*(yank/paste)        // access sytem clipboard register
@@ -95,7 +95,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'matze/vim-move'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-"Bundle 'scrooloose/syntastic'
+""Bundle 'scrooloose/syntastic'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tomasr/molokai'
 Bundle 'Townk/vim-autoclose'
@@ -104,7 +104,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 "Bundle 'tpope/vim-vinegar'
 Bundle 'Yggdroot/indentLine'
-""" vim.org
+"""" vim.org
 Bundle 'taglist.vim'
 
 """""" Language Options
@@ -147,6 +147,10 @@ set showcmd " Display incomplete commands at bottom
 set showmatch " Show matching parentheses
 set title " Set the Vim title when running in an xterm
 set cursorline " Highlight current line
+"set colorcolumn=121 " Highlight the given column
+""" Highlight lines longer than 120 columns in red
+autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+autocmd BufEnter * match OverLength /\%121v.\+/
 
 """""" Line Breaks
 set linebreak nolist textwidth=0 wrapmargin=0 " Disables auto line break
@@ -157,7 +161,7 @@ set nowrap " Disable line wrapping
 set noerrorbells " Disable error bells
 set visualbell " Disables the audio bell and toggles the visual bell
 set t_vb= " Sort of disables the visual bell
-au GUIEnter * set visualbell t_vb= " Since t_vb must be set after the GUI is loaded
+autocmd GUIEnter * set visualbell t_vb= " Since t_vb must be set after the GUI is loaded
 
 """""" Scrolling
 set scrolloff=8 " Start scrolling when 8 lines away from margins
@@ -165,12 +169,12 @@ set sidescrolloff=4 " Number of lines to keep when scrolling sideways
 
 """""" Filetype Specifics
 """ Use specific settings for different languages
-au FileType html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-au FileType css setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-au FileType php setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-au FileType vim setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-au FileType go setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
-au FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType css setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType php setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType vim setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType go setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
+autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 
 """""" Tabbing
 set tabstop=4 " Set visual size of tabs
@@ -234,7 +238,7 @@ let g:EasyMotion_smartcase = 1 " Match like smartcase for global search
 
 """ indentLine
 let g:indentLine_faster = 1 " Make it faster
-au GUIEnter * syntax on " For some reason this has to be redone
+autocmd GUIEnter * syntax on " For some reason this has to be redone
 
 """ Molokai
 let g:molokai_original = 0 " Set whether to use the lighter original background
@@ -253,11 +257,11 @@ let g:sneak#use_ic_scs = 1 " ignorecase/smartcase decides case-sensitivity
 
 """ Rainbow Parentheses
 " Toggle upon program start
-"au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-au Syntax * RainbowParenthesesLoadChevrons
+"autocmd VimEnter * RainbowParenthesesToggle
+autocmd Syntax * RainbowParenthesesLoadRound
+autocmd Syntax * RainbowParenthesesLoadSquare
+autocmd Syntax * RainbowParenthesesLoadBraces
+autocmd Syntax * RainbowParenthesesLoadChevrons
 
 """ Taglist
 let Tlist_Use_Right_Window = 1 " Open to the right
@@ -447,9 +451,9 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 " Toggle line wrap
 map <F9> :set wrap!<CR>
-" Keep visually selected text when indenting
-vmap > >gv
-vmap < <gv
+""" Keep visually selected text when indenting
+"vmap > >gv
+"vmap < <gv
 " Remap Ex mode key to just playback from q register instead
 nnoremap Q @q
 " Make Y behave as C and D instead of yanking the entire line
