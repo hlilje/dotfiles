@@ -1,39 +1,39 @@
 " Maintainer: Hampus Liljekvist
-" Version: 2014-06-07
+" Version: 2014-06-08
 
 """""" Cheat Sheet
-" "*(yank/paste)        // access sytem clipboard register
-" (num)|                // go to column (num)
-" / C-r C-w             // copy word into search box
-" :args, :argdo         // argument list
-" :g/[x]/d              // search and delete
-" :on                   // make the current window the only visible
-" <substitute>/gc       // c for confirmation
-" C-R (reg) [i]         // copy from reg in ins mode
-" C-n                   // suggestions (insert mode)
-" C-n [n]               // use multiple cursors
-" C-o                   // return to previous jump
-" C-o, C-i              // change between cursor pos
-" C-r "                 // paste?
-" C-r =                 // expression register
-" C-x C-O               // omnicompletion (insert mode)
-" C-x C-f               // filename completion (insert mode)
-" C-y/e [i]             // insert char above/under cursor
-" K                     // lookup manpage for word under cursor
-" R                     // begin overwriting text
-" ]/[p                  // match indentation when pasting
-" ]]/][                 // beginning/end of next section
-" cs"'                  // subst " for '
-" ds"                   // remove "
-" gJ                    // join line without space
-" ga                    // show character encoding
-" ge/E                  // end of previous word
-" gf                    // open file under cursor
-" gm                    // go to middle of screen line
-" r x                   // replace char with x
-" viwS"                 // visually select word and surround with quotes
-" ysiw]                 // surround text obj iw with []
-" zE                    // delete all folds
+" "*(yank/paste)        access sytem clipboard register
+" (num)|                go to column (num)
+" / C-r C-w             copy word into search box
+" :args, :argdo         argument list
+" :g/[x]/d              search and delete
+" :on                   make the current window the only visible
+" <substitute>/gc       c for confirmation
+" C-R (reg) [i]         copy from reg in ins mode
+" C-n                   suggestions (insert mode)
+" C-n [n]               use multiple cursors
+" C-o                   return to previous jump
+" C-o, C-i              change between cursor pos
+" C-r "                 paste?
+" C-r =                 expression register
+" C-x C-O               omnicompletion (insert mode)
+" C-x C-f               filename completion (insert mode)
+" C-y/e [i]             insert char above/under cursor
+" K                     lookup manpage for word under cursor
+" R                     begin overwriting text
+" ]/[p                  match indentation when pasting
+" ]]/][                 beginning/end of next section
+" cs"'                  subst " for '
+" ds"                   remove "
+" gJ                    join line without space
+" ga                    show character encoding
+" ge/E                  end of previous word
+" gf                    open file under cursor
+" gm                    go to middle of screen line
+" r x                   replace char with x
+" viwS"                 visually select word and surround with quotes
+" ysiw]                 surround text obj iw with []
+" zE                    delete all folds
 
 set nocompatible " Enable Vim mode
 
@@ -53,7 +53,7 @@ if has("unix")
   set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
   let g:airline_powerline_fonts = 1 " Enably fancy Powerline fonts
 
-  " Make Vim detect gnome-terminal's colour support
+  " Force Vim to detect gnome-terminal's colour support
   if $COLORTERM == 'gnome-terminal'
     set t_Co=256
   endif
@@ -151,6 +151,10 @@ set cursorline " Highlight current line
 """ Highlight lines longer than 120 columns in red
 autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 autocmd BufEnter * match OverLength /\%121v.\+/
+""" Set transparent background for gnome-terminal
+if $COLORTERM == 'gnome-terminal'
+  highlight Normal ctermbg=NONE
+endif
 
 """""" Line Breaks
 set linebreak nolist textwidth=0 wrapmargin=0 " Disables auto line break
