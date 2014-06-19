@@ -1,39 +1,5 @@
 " Maintainer: Hampus Liljekvist
-" Version: 2014-06-16
-
-"""""" Cheat Sheet
-" "*(yank/paste)        access sytem clipboard register
-" (num)|                go to column (num)
-" / C-r C-w             copy word into search box
-" :args, :argdo         argument list
-" :g/[x]/d              search and delete
-" :on                   make the current window the only visible
-" <substitute>/gc       c for confirmation
-" C-R (reg) [i]         copy from reg in ins mode
-" C-n                   suggestions (insert mode)
-" C-n [n]               use multiple cursors
-" C-o                   return to previous jump
-" C-o, C-i              change between cursor pos
-" C-r "                 paste?
-" C-r =                 expression register
-" C-x C-O               omnicompletion (insert mode)
-" C-x C-f               filename completion (insert mode)
-" C-y/e [i]             insert char above/under cursor
-" K                     lookup manpage for word under cursor
-" R                     begin overwriting text
-" ]/[p                  match indentation when pasting
-" ]]/][                 beginning/end of next section
-" cs"'                  subst " for '
-" ds"                   remove "
-" gJ                    join line without space
-" ga                    show character encoding
-" ge/E                  end of previous word
-" gf                    open file under cursor
-" gm                    go to middle of screen line
-" r x                   replace char with x
-" viwS"                 visually select word and surround with quotes
-" ysiw]                 surround text obj iw with []
-" zE                    delete all folds
+" Version:    2014-06-19
 
 set nocompatible " Enable Vim mode
 
