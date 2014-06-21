@@ -1,5 +1,5 @@
 " Maintainer: Hampus Liljekvist
-" Version:    2014-06-19
+" Version:    2014-06-21
 
 set nocompatible " Enable Vim mode
 
@@ -113,7 +113,7 @@ set showcmd " Display incomplete commands at bottom
 set showmatch " Show matching parentheses
 set title " Set the Vim title when running in an xterm
 set cursorline " Highlight current line
-set colorcolumn=121 " Highlight the given column
+"set colorcolumn=121 " Highlight the given column
 """ Highlight lines longer than 120 columns in red
 "autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 "autocmd BufEnter * match OverLength /\%121v.\+/
