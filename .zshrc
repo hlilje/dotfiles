@@ -5,8 +5,7 @@ export ZSH=$HOME/.oh-my-zsh
 ### Theme to load
 # Location: ~/.oh-my-zsh/themes/
 # Set to 'random' for random theme
-#ZSH_THEME="agnoster"
-ZSH_THEME="random"
+ZSH_THEME="mh"
 
 # Use case-sensitive completion
 #CASE_SENSITIVE="true"
@@ -18,7 +17,7 @@ ZSH_THEME="random"
 #export UPDATE_ZSH_DAYS=13
 
 # Display red dots whilst waiting for completion
-#COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Disable marking untracked files under VCS as dirty, makes repository
 # status check for large repositories much faster
@@ -32,13 +31,17 @@ HIST_STAMPS="yyyy-mm-dd"
 ### Plugins to load
 # Plugin location: ~/.oh-my-zsh/plugins/*
 # Custom plugin location: ~/.oh-my-zsh/custom/plugins/
-plugins=(git tmux)
+plugins=(git tmux colored-man vundle vi-mode)
 
 # Automatically start a tmux session
 ZSH_TMUX_AUTOSTART="true"
 
+###### Scripts
 # Source startup script
 source $ZSH/oh-my-zsh.sh
+
+# Add substring history search
+source $ZSH/plugins/history-substring-search/history-substring-search.zsh
 
 ###### zsh configuration
 # Enable Vi commands
@@ -72,8 +75,16 @@ alias dgi="cd ~/Dropbox/Education/dgi14/project"
 # Start IntelliJ IDEA
 alias idea="/opt/idea-IC-135.480/bin/idea.sh"
 
-# Update
+# apt-get aliases
+alias autoremove="sudo apt-get autoremove"
+alias clean="sudo apt-get clean"
+alias dist-upgrade="sudo apt-get dist-upgrade"
+alias install="sudo apt-get install"
+alias purge="sudo apt-get purge"
+alias remove="sudo apt-get remove"
+alias search="sudo apt-get search"
 alias update="sudo apt-get update"
-
-# Upgrade
 alias upgrade="sudo apt-get upgrade"
+
+# Exit all tmux sessions quickly
+alias exitall="tmux kill-server"
