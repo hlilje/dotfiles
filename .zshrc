@@ -1,3 +1,6 @@
+# OS-specific settings
+OS=`uname`
+
 ###### oh-my-zsh configuration
 # Path to oh-my-zsh installation
 export ZSH=$HOME/.oh-my-zsh
@@ -6,6 +9,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Location: ~/.oh-my-zsh/themes/
 # Set to 'random' for random theme
 ZSH_THEME="mh"
+#ZSH_THEME="hlilje"
 
 # Use case-sensitive completion
 #CASE_SENSITIVE="true"
@@ -75,16 +79,18 @@ alias dgi="cd ~/Dropbox/Education/dgi14/project"
 # Start IntelliJ IDEA
 alias idea="/opt/idea-IC-135.480/bin/idea.sh"
 
-# apt-get aliases
-alias autoremove="sudo apt-get autoremove"
-alias clean="sudo apt-get clean"
-alias dist-upgrade="sudo apt-get dist-upgrade"
-alias install="sudo apt-get install"
-alias purge="sudo apt-get purge"
-alias remove="sudo apt-get remove"
-alias search="sudo apt-get search"
-alias update="sudo apt-get update"
-alias upgrade="sudo apt-get upgrade"
+if [[ "$OS" == 'Linux' ]]; then
+    # apt-get aliases
+    alias autoremove="sudo apt-get autoremove"
+    alias clean="sudo apt-get clean"
+    alias dist-upgrade="sudo apt-get dist-upgrade"
+    alias install="sudo apt-get install"
+    alias purge="sudo apt-get purge"
+    alias remove="sudo apt-get remove"
+    alias search="sudo apt-get search"
+    alias update="sudo apt-get update"
+    alias upgrade="sudo apt-get upgrade"
+fi
 
 # Exit all tmux sessions quickly
 alias exitall="tmux kill-server"

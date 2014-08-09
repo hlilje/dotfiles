@@ -1,5 +1,5 @@
 " Maintainer: Hampus Liljekvist
-" Version:    2014-06-21
+" Version:    2014-08-09
 
 set nocompatible " Enable Vim mode
 
@@ -215,7 +215,7 @@ let g:molokai_original = 0 " Set whether to use the lighter original background
 let g:rehash256 = 1 " Make terminal Vim look similar to the dark gui theme
 
 """ NERDTree(Tabs)
-"let g:nerdtree_tabs_open_on_gui_startup = 0 " Disable open on startup
+let g:nerdtree_tabs_open_on_gui_startup = 0 " Disable open on startup
 
 """ sneak.vim
 let g:sneak#streak = 1 " Use as a minimalist alternative to EasyMotion
@@ -235,7 +235,7 @@ autocmd Syntax * RainbowParenthesesLoadChevrons
 
 """ Taglist
 let Tlist_Use_Right_Window = 1 " Open to the right
-let Tlist_Auto_Open = 1 " Open on launch
+"let Tlist_Auto_Open = 1 " Open on launch
 
 """ vim-airline
 set laststatus=2 " Make it appear without splitting
