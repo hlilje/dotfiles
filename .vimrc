@@ -16,7 +16,13 @@ if has("unix")
   " Set font and font size
   "set guifont=Ubuntu\ Mono\ 11
   "set guifont=Source\ Code\ Pro\ 10
-  set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+
+  if system('uname')=~'Darwin'
+      set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+    else " Different syntax for Ubuntu
+      set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+  endif
+
   let g:airline_powerline_fonts = 1 " Enably fancy Powerline fonts
 
   " Force Vim to detect gnome-terminal's colour support
