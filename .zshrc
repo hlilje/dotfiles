@@ -90,6 +90,14 @@ if [[ "$OS" == 'Linux' ]]; then
     alias search="sudo apt-get search"
     alias update="sudo apt-get update"
     alias upgrade="sudo apt-get upgrade"
+elif [[ "$OS" == 'Darwin' ]]; then
+    # Brew aliases
+    alias doctor="brew doctor"
+    alias cleanup="brew cleanup"
+    alias list="brew list"
+    alias remove="brew remove"
+    alias search="brew search"
+    alias update="brew update"
 fi
 
 # Exit all tmux sessions quickly
