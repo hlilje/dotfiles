@@ -1,5 +1,5 @@
 " Maintainer: Hampus Liljekvist
-" Version:    2014-08-09
+" Version:    2014-09-11
 
 set nocompatible " Enable Vim mode
 
@@ -224,7 +224,7 @@ let g:rehash256 = 1 " Make terminal Vim look similar to the dark gui theme
 let g:nerdtree_tabs_open_on_gui_startup = 0 " Disable open on startup
 
 """ sneak.vim
-let g:sneak#streak = 1 " Use as a minimalist alternative to EasyMotion
+"let g:sneak#streak = 1 " Use as a minimalist alternative to EasyMotion
 let g:sneak#s_next = 1 " Use 's' to jump to next match
 let g:sneak#use_ic_scs = 1 " ignorecase/smartcase decides case-sensitivity
 
@@ -323,9 +323,9 @@ ab syso System.out.println("");<Esc>2hi
 " Remap Esc to get out of insert mode quickly
 imap jk <Esc>
 imap kj <Esc>
-" Since ` jumps to the right colum as well it should be easier to reach
-nnoremap ' `
-nnoremap ` '
+" Since ` jumps to the correct colum as well it should be easier to reach
+"nnoremap ' `
+"nnoremap ` '
 " Remap Tab to cycle between listed buffers and show them afterwards
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
