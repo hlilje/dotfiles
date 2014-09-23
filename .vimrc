@@ -2,28 +2,28 @@ set nocompatible " Enable Vim mode
 
 """""" Unix Specific Settings
 if has("unix")
-  " This line should not be removed as it ensures that various options are
-  " properly set to work with the Vim-related packages available in Debian
-  runtime! debian.vim
-
   " Vundle settings
   set runtimepath+=~/.vim/bundle/vundle/
   call vundle#rc()
 
-  " Set font and font size
-  if system('uname')=~'Darwin'
-      set guifont=Source\ Code\ Pro\ for\ Powerline:h12
-    else " Different syntax for Ubuntu
-      set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
-      "set guifont=Ubuntu\ Mono\ 11
+  if system('uname')=~'Linux'
+    " This line should not be removed as it ensures that various options are
+    " properly set to work with the Vim-related packages available in Debian
+    runtime! debian.vim
+
+    " Force Vim to detect gnome-terminal's colour support
+    if $COLORTERM == 'gnome-terminal'
+      set t_Co=256
+    endif
+
+    " Set font and font size (different syntax for Ubuntu)
+    "set guifont=Ubuntu\ Mono\ 11
+    set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+  else
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h12
   endif
 
   let g:airline_powerline_fonts = 1 " Enably fancy Powerline fonts
-
-  " Force Vim to detect gnome-terminal's colour support
-  if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-  endif
 endif
 
 """""" Windows Specific Settings
@@ -56,7 +56,6 @@ Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'justinmk/vim-sneak'
 Bundle 'kien/ctrlp.vim'
-Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'kshenoy/vim-signature'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'matze/vim-move'
@@ -79,8 +78,8 @@ let $LANG = 'en' " Set the language
 set spelllang=en spell
 set nospell " Disable by default
 
-"""""" Program Stuff
-" Fix for go syntax highlighting
+"""""" Program Related
+" Fix for Go syntax highlighting
 filetype off
 filetype plugin indent off
 set runtimepath+=$GOROOT/misc/vim
@@ -98,7 +97,7 @@ source $VIMRUNTIME/mswin.vim " Gives Windows key mappings like Ctrl-Y
 """""" GUI Settings
 set guioptions-=m " Remove menu bar
 set guioptions-=T " Remove toolbar
-set guioptions+=LlRrb " Add scrollbars...
+set guioptions+=LlRrb " Bugfix: Must add scrollbars first
 set guioptions-=LlRrb " Remove scrollbars
 
 """""" Visual Settings
@@ -207,17 +206,8 @@ let g:rehash256 = 1 " Make terminal Vim look similar to the dark gui theme
 let g:nerdtree_tabs_open_on_gui_startup = 0 " Disable open on startup
 
 """ sneak.vim
-"let g:sneak#streak = 1 " Use as a minimalist alternative to EasyMotion
 let g:sneak#s_next = 1 " Use 's' to jump to next match
 let g:sneak#use_ic_scs = 1 " ignorecase/smartcase decides case-sensitivity
-
-""" Rainbow Parentheses
-" Toggle upon program start
-"autocmd VimEnter * RainbowParenthesesToggle
-autocmd Syntax * RainbowParenthesesLoadRound
-autocmd Syntax * RainbowParenthesesLoadSquare
-autocmd Syntax * RainbowParenthesesLoadBraces
-autocmd Syntax * RainbowParenthesesLoadChevrons
 
 """ Taglist
 let Tlist_Use_Right_Window = 1 " Open to the right
@@ -308,7 +298,7 @@ nnoremap <S-Tab> :bprevious<CR>
 " Use more than 1 step when scrolling
 nnoremap <C-e> 8<C-e>
 nnoremap <C-y> 8<C-y>
-" Toggle whitespace visibility with <Leader>s and mute messages with <silent>
+" Toggle whitespace visibility
 nnoremap <silent> <Leader>sw :set nolist!<CR>
 " Mapping to edit the vimrc quickly
 nnoremap <Leader>ev :e $MYVIMRC<CR>
@@ -372,13 +362,8 @@ nnoremap <Leader>fa ggVG=
 nnoremap <Leader>cd :cd%:p:h<CR>
 " Hack to close buffer without closing window
 nnoremap <Leader>dd :bp<Bar>sp<Bar>bn<Bar>bd<CR>
-" Convert between line endings
-nnoremap <Leader>ctu :set ff=unix<CR>
-nnoremap <Leader>ctw :set ff=dos<CR>
 " Delete trailing whitespace
 nnoremap <Leader>dw :%s/\s\+$//<CR>
-" Toggle Rainbow Parentheses
-nnoremap <Leader>rp :RainbowParenthesesToggle<CR>
 " Toggle Taglist
 nnoremap <Leader>tl :TlistToggle<CR>
 " Scroll x chars to the left/right
@@ -391,9 +376,6 @@ map <silent> e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
 sunmap e
-""" Do more useful things with standard keys in normal mode
-nnoremap <CR> viw
-nnoremap <BS> vap
 " Toggle fold with space, works as normal if no fold
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
@@ -403,3 +385,5 @@ map <F9> :set wrap!<CR>
 nnoremap Q @q
 " Make Y behave as C and D instead of yanking the entire line
 nnoremap Y y$
+" Quickly remove search highlight
+nnoremap <Leader>nn :noh<CR>$
