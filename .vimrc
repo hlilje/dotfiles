@@ -1,6 +1,3 @@
-" Maintainer: Hampus Liljekvist
-" Version:    2014-09-11
-
 set nocompatible " Enable Vim mode
 
 """""" Unix Specific Settings
@@ -14,13 +11,11 @@ if has("unix")
   call vundle#rc()
 
   " Set font and font size
-  "set guifont=Ubuntu\ Mono\ 11
-  "set guifont=Source\ Code\ Pro\ 10
-
   if system('uname')=~'Darwin'
       set guifont=Source\ Code\ Pro\ for\ Powerline:h12
     else " Different syntax for Ubuntu
       set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+      "set guifont=Ubuntu\ Mono\ 11
   endif
 
   let g:airline_powerline_fonts = 1 " Enably fancy Powerline fonts
@@ -67,14 +62,11 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'matze/vim-move'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-""Bundle 'scrooloose/syntastic'
-Bundle 'terryma/vim-multiple-cursors'
 Bundle 'tomasr/molokai'
 Bundle 'Townk/vim-autoclose'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
-"Bundle 'tpope/vim-vinegar'
 Bundle 'Yggdroot/indentLine'
 """" vim.org
 Bundle 'taglist.vim'
@@ -119,10 +111,6 @@ set showcmd " Display incomplete commands at bottom
 set showmatch " Show matching parentheses
 set title " Set the Vim title when running in an xterm
 set cursorline " Highlight current line
-"set colorcolumn=121 " Highlight the given column
-""" Highlight lines longer than 120 columns in red
-"autocmd BufEnter * highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"autocmd BufEnter * match OverLength /\%121v.\+/
 """ Set transparent background for gnome-terminal
 if $COLORTERM == 'gnome-terminal'
   highlight Normal ctermbg=NONE
@@ -193,11 +181,6 @@ set backspace=indent,eol,start
 " Set how these whitspace chars should be displayed
 set listchars=tab:>-,trail:·,eol:$,extends:>,precedes:<,nbsp:_
 
-"""""" Sessions
-" Save state upon leaving and restore it upon entering
-"autocmd VimLeave * execute ':mksession! ~/.vimsession'
-"autocmd VimEnter * execute ':source ~/.vimsession'
-
 """""" Leader
 " Set the leader key to somewhere reasonable
 let mapleader = ","
@@ -228,9 +211,6 @@ let g:nerdtree_tabs_open_on_gui_startup = 0 " Disable open on startup
 let g:sneak#s_next = 1 " Use 's' to jump to next match
 let g:sneak#use_ic_scs = 1 " ignorecase/smartcase decides case-sensitivity
 
-""" Syntastic
-"let g:syntastic_check_on_wq = 0 " Don't check on buffer wq
-
 """ Rainbow Parentheses
 " Toggle upon program start
 "autocmd VimEnter * RainbowParenthesesToggle
@@ -241,7 +221,6 @@ autocmd Syntax * RainbowParenthesesLoadChevrons
 
 """ Taglist
 let Tlist_Use_Right_Window = 1 " Open to the right
-"let Tlist_Auto_Open = 1 " Open on launch
 
 """ vim-airline
 set laststatus=2 " Make it appear without splitting
@@ -323,9 +302,6 @@ ab syso System.out.println("");<Esc>2hi
 " Remap Esc to get out of insert mode quickly
 imap jk <Esc>
 imap kj <Esc>
-" Since ` jumps to the correct colum as well it should be easier to reach
-"nnoremap ' `
-"nnoremap ` '
 " Remap Tab to cycle between listed buffers and show them afterwards
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
@@ -349,7 +325,7 @@ map <C-l> <C-w>l
 nnoremap <Leader>nt :NERDTreeTabsToggle<CR>
 " Expand NERDTree to current dir
 nnoremap <Leader>ct :NERDTreeFind<CR>
-" Cycle tabs with Tab
+" Cycle tabs with Ctrl Tab
 nmap <C-Tab> :tabn<CR>
 nmap <C-S-Tab> :tabp<CR>
 nmap <C-t> :tabnew<CR>
@@ -390,16 +366,12 @@ nnoremap <Leader>7 :7b<CR>
 nnoremap <Leader>8 :8b<CR>
 nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
-" Map control-backspace to delete the previous word
-imap <C-BS> <C-w>
 " Format everything quickly
 nnoremap <Leader>fa ggVG=
 " Change dir globally to active window
 nnoremap <Leader>cd :cd%:p:h<CR>
 " Hack to close buffer without closing window
 nnoremap <Leader>dd :bp<Bar>sp<Bar>bn<Bar>bd<CR>
-" Wish this worked...
-"nnoremap :w]<CR> <NOP>
 " Convert between line endings
 nnoremap <Leader>ctu :set ff=unix<CR>
 nnoremap <Leader>ctw :set ff=dos<CR>
@@ -427,9 +399,6 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 " Toggle line wrap
 map <F9> :set wrap!<CR>
-""" Keep visually selected text when indenting
-"vmap > >gv
-"vmap < <gv
 " Remap Ex mode key to just playback from q register instead
 nnoremap Q @q
 " Make Y behave as C and D instead of yanking the entire line

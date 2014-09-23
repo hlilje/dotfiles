@@ -19,4 +19,8 @@ if [[ "$OS" == 'Linux' ]]; then
 elif [[ "$OS" == 'Darwin' ]]; then
     # Use Homebrew before system programs
     export PATH="/usr/local/bin:$PATH"
+
+    # Display unicode properly
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
 fi
