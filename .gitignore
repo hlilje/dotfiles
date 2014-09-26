@@ -2,6 +2,7 @@
 .gnupg
 .vim
 .filezilla
+.atom
 .oh-my-zsh
 .DS_Store
 *~
