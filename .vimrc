@@ -57,6 +57,7 @@ Plugin 'fatih/vim-go'
 Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'justinmk/vim-sneak'
 Bundle 'kien/ctrlp.vim'
+Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'kshenoy/vim-signature'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'majutsushi/tagbar'
@@ -68,6 +69,7 @@ Bundle 'Townk/vim-autoclose'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/a.vim'
 Bundle 'Yggdroot/indentLine'
 
 "======== Language Options
@@ -186,9 +188,6 @@ let mapleader = ","
 """ AutoClose
 let g:AutoCloseExpandSpace = 0 " Disable space to not break abbreviation expansion
 
-""" CtrlP
-let g:ctrlp_cmd = 'CtrlPBuffer' " Use buffer search as default
-
 """ EasyMotion
 let g:EasyMotion_smartcase = 1 " Match like smartcase for global search
 
@@ -202,6 +201,14 @@ let g:rehash256 = 1 " Make terminal Vim look similar to the dark gui theme
 
 """ NERDTree(Tabs)
 let g:nerdtree_tabs_open_on_gui_startup = 0 " Disable open on startup
+
+""" Rainbow Parentheses
+" TODO Does not work
+au VimEnter * RainbowParenthesesToggle " Auto load
+au Syntax * RainbowParenthesesLoadRound " ()
+au Syntax * RainbowParenthesesLoadSquare " []
+au Syntax * RainbowParenthesesLoadBraces " {}
+au Syntax * RainbowParenthesesLoadChevrons " <>
 
 """ sneak.vim
 let g:sneak#s_next = 1 " Use 's' to jump to next match
@@ -355,3 +362,5 @@ nnoremap <Leader>nn :noh<CR>
 nnoremap <Leader>tb :TagbarToggle<CR>
 " Toggle whitespace visibility
 nnoremap <silent> <Leader>sw :set nolist!<CR>
+" Toggle rainbow parentheses
+nnoremap <Leader>rp :RainbowParenthesesToggle<CR>

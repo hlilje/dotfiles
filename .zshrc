@@ -57,7 +57,7 @@ export TERM=xterm-256color
 # Used for adk lab
 #export LC_COLLATE=C
 
-### Aliases
+###### Aliases
 # Easier home access
 alias gh="cd ~"
 
@@ -102,3 +102,6 @@ fi
 
 # Exit all tmux sessions quickly
 alias exitall="tmux kill-server"
+
+###### Key Bindings
+bindkey '^R' history-incremental-search-backward
