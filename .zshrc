@@ -6,35 +6,18 @@ OS=`uname`
 export ZSH=$HOME/.oh-my-zsh
 
 ### Theme to load
-# Location: ~/.oh-my-zsh/themes/
 # Set to 'random' for random theme
 ZSH_THEME="mh"
 #ZSH_THEME="hlilje"
 
-# Use case-sensitive completion
-#CASE_SENSITIVE="true"
-
-# Disable bi-weekly auto-update checks
-#DISABLE_AUTO_UPDATE="true"
-
-# Change how often to auto-update (in days)
-#export UPDATE_ZSH_DAYS=13
-
 # Display red dots whilst waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
-# Disable marking untracked files under VCS as dirty, makes repository
-# status check for large repositories much faster
-#DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Change the command execution time stamp shown in the history command output
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# Command execution time stamp shown in the history command output
 HIST_STAMPS="yyyy-mm-dd"
 
 ###### oh-my-zsh plugin settings
 ### Plugins to load
-# Plugin location: ~/.oh-my-zsh/plugins/*
-# Custom plugin location: ~/.oh-my-zsh/custom/plugins/
 plugins=(git tmux colored-man vundle vi-mode)
 
 # Automatically start a tmux session
@@ -104,4 +87,5 @@ fi
 alias exitall="tmux kill-server"
 
 ###### Key Bindings
+# Workaround for tmux/zsh bug
 bindkey '^R' history-incremental-search-backward

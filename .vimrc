@@ -203,12 +203,12 @@ let g:rehash256 = 1 " Make terminal Vim look similar to the dark gui theme
 let g:nerdtree_tabs_open_on_gui_startup = 0 " Disable open on startup
 
 """ Rainbow Parentheses
-" TODO Does not work
-au VimEnter * RainbowParenthesesToggle " Auto load
-au Syntax * RainbowParenthesesLoadRound " ()
-au Syntax * RainbowParenthesesLoadSquare " []
-au Syntax * RainbowParenthesesLoadBraces " {}
-au Syntax * RainbowParenthesesLoadChevrons " <>
+" TODO Does not work in gvim if started from terminal
+"au VimEnter * RainbowParenthesesToggle " Auto load
+"au Syntax * RainbowParenthesesLoadRound " ()
+"au Syntax * RainbowParenthesesLoadSquare " []
+"au Syntax * RainbowParenthesesLoadBraces " {}
+"au Syntax * RainbowParenthesesLoadChevrons " <>
 
 """ sneak.vim
 let g:sneak#s_next = 1 " Use 's' to jump to next match
@@ -362,5 +362,9 @@ nnoremap <Leader>nn :noh<CR>
 nnoremap <Leader>tb :TagbarToggle<CR>
 " Toggle whitespace visibility
 nnoremap <silent> <Leader>sw :set nolist!<CR>
-" Toggle rainbow parentheses
+" Toggle rainbow parentheses, workaround for gvim terminal bug
 nnoremap <Leader>rp :RainbowParenthesesToggle<CR>
+        \ :RainbowParenthesesLoadRound<CR>
+        \ :RainbowParenthesesLoadSquare<CR>
+        \ :RainbowParenthesesLoadBraces<CR>
+        \ :RainbowParenthesesLoadChevrons<CR>
