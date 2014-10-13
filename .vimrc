@@ -49,28 +49,32 @@ endif
 " Bundle declarations have to happen when filetype off, and filetype plugin
 " indent on have to come after them
 """ GitHub
-Bundle 'gmarik/vundle'
-Bundle 'bkad/CamelCaseMotion'
-Bundle 'bling/vim-airline'
-Bundle 'ervandew/supertab'
+Plugin 'gmarik/vundle'
+
+Plugin 'airblade/vim-gitgutter'
+"Plugin 'altercation/vim-colors-solarized'
+Plugin 'bkad/CamelCaseMotion'
+Plugin 'bling/vim-airline'
+"Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'justinmk/vim-sneak'
-Bundle 'kien/ctrlp.vim'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'kshenoy/vim-signature'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'majutsushi/tagbar'
-Bundle 'matze/vim-move'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tomasr/molokai'
-Bundle 'Townk/vim-autoclose'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/a.vim'
-Bundle 'Yggdroot/indentLine'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'justinmk/vim-sneak'
+Plugin 'kien/ctrlp.vim'
+Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'kshenoy/vim-signature'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'majutsushi/tagbar'
+Plugin 'matze/vim-move'
+Plugin 'Raimondi/delimitMate'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tomasr/molokai'
+Plugin 'tpope/vim-commentary'
+"Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/a.vim'
+Plugin 'Yggdroot/indentLine'
 
 "======== Language Options
 """ Vim language
@@ -196,19 +200,18 @@ let g:indentLine_faster = 1 " Make it faster
 autocmd GUIEnter * syntax on " For some reason this has to be redone
 
 """ Molokai
-let g:molokai_original = 0 " Set whether to use the lighter original background
+"let g:molokai_original = 1 " Use the original lighter background
 let g:rehash256 = 1 " Make terminal Vim look similar to the dark gui theme
 
 """ NERDTree(Tabs)
 let g:nerdtree_tabs_open_on_gui_startup = 0 " Disable open on startup
 
 """ Rainbow Parentheses
-" TODO Does not work in gvim if started from terminal
 "au VimEnter * RainbowParenthesesToggle " Auto load
-"au Syntax * RainbowParenthesesLoadRound " ()
-"au Syntax * RainbowParenthesesLoadSquare " []
-"au Syntax * RainbowParenthesesLoadBraces " {}
-"au Syntax * RainbowParenthesesLoadChevrons " <>
+au Syntax * RainbowParenthesesLoadRound " ()
+au Syntax * RainbowParenthesesLoadSquare " []
+au Syntax * RainbowParenthesesLoadBraces " {}
+au Syntax * RainbowParenthesesLoadChevrons " <>
 
 """ sneak.vim
 let g:sneak#s_next = 1 " Use 's' to jump to next match
