@@ -77,6 +77,7 @@ elif [[ "$OS" == 'Darwin' ]]; then
     # Brew aliases
     alias doctor="brew doctor"
     alias cleanup="brew cleanup"
+    alias install="brew install"
     alias list="brew list"
     alias remove="brew remove"
     alias search="brew search"
