@@ -82,6 +82,7 @@ elif [[ "$OS" == 'Darwin' ]]; then
     alias remove="brew remove"
     alias search="brew search"
     alias update="brew update"
+    alias upgrade="brew upgrade"
 fi
 
 # Exit all tmux sessions quickly

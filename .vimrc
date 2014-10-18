@@ -116,10 +116,7 @@ set showcmd " Display incomplete commands at bottom
 set showmatch " Show matching parentheses
 set title " Set the Vim title when running in an xterm
 set cursorline " Highlight current line
-""" Set transparent background for gnome-terminal
-if $COLORTERM == 'gnome-terminal'
-  highlight Normal ctermbg=NONE
-endif
+"highlight Normal ctermbg=NONE " Use transparent text background in terminal
 
 "======== Line Breaks
 set linebreak nolist textwidth=0 wrapmargin=0 " Disables auto line break
@@ -295,6 +292,9 @@ if has("gui_running")
 endif
 
 "======== Abbreviations
+""" C++
+ab sout std::cout << << std::endl;<Esc>13hi
+
 """ Java
 ab syso System.out.println("");<Esc>2hi
 
@@ -362,7 +362,7 @@ nnoremap <Leader>nt :NERDTreeTabsToggle<CR>
 " Expand NERDTree to current dir
 nnoremap <Leader>ct :NERDTreeFind<CR>
 " Quickly remove search highlight
-nnoremap <Leader>nn :noh<CR>
+nnoremap <Leader>nn :nohlsearch<CR>
 " Toggle Tagbar
 nnoremap <Leader>tb :TagbarToggle<CR>
 " Toggle whitespace visibility
