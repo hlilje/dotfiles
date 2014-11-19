@@ -217,6 +217,9 @@ au Syntax * RainbowParenthesesLoadChevrons " <>
 let g:sneak#s_next = 1 " Use 's' to jump to next match
 let g:sneak#use_ic_scs = 1 " ignorecase/smartcase decides case-sensitivity
 
+""" Syntastic
+let g:syntastic_cpp_compiler_options = '-std=c++11' " Check with C++11
+
 """ vim-airline
 set laststatus=2 " Make it appear without splitting
 let g:airline#extensions#tabline#enabled = 1 " Enable buffer tabs
