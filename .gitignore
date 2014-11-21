@@ -1,9 +1,10 @@
+*~
+.DS_Store
+.atom
+.filezilla
 .git-credentials
 .gnupg
-.vim
-.filezilla
-.atom
 .oh-my-zsh
-.DS_Store
+.ssh
+.vim
 User
-*~

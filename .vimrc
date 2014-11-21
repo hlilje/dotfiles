@@ -51,6 +51,7 @@ endif
 """ GitHub
 Plugin 'gmarik/vundle'
 
+" TODO Does not colour line markers unless vimrc is reloaded
 Plugin 'airblade/vim-gitgutter'
 "Plugin 'altercation/vim-colors-solarized'
 Plugin 'bkad/CamelCaseMotion'
@@ -207,6 +208,7 @@ let g:rehash256 = 1 " Make terminal Vim look similar to the dark gui theme
 let g:nerdtree_tabs_open_on_gui_startup = 0 " Disable open on startup
 
 """ Rainbow Parentheses
+" TODO Does not toggle when autoloading on startup
 "au VimEnter * RainbowParenthesesToggle " Auto load
 au Syntax * RainbowParenthesesLoadRound " ()
 au Syntax * RainbowParenthesesLoadSquare " []
