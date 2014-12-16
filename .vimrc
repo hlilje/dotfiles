@@ -221,6 +221,7 @@ let g:sneak#use_ic_scs = 1 " ignorecase/smartcase decides case-sensitivity
 
 """ Syntastic
 let g:syntastic_cpp_compiler_options = '-std=c++11' " Check with C++11
+let g:syntastic_python_python_exe = 'python3' " Check with Python 3
 
 """ vim-airline
 set laststatus=2 " Make it appear without splitting
