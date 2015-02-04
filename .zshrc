@@ -41,9 +41,6 @@ export TERM=xterm-256color
 #export LC_COLLATE=C
 
 ###### Aliases
-# Easier home access
-alias gh="cd ~"
-
 # Easier dotfiles access
 alias dotfiles="cd ~/Dropbox/dotfiles"
 
