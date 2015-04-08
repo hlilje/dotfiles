@@ -303,7 +303,7 @@ endif
 ab sout std::cout << << std::endl;<Esc>13hi
 
 """ Java
-ab syso System.out.println("");<Esc>2hi
+ab syso System.out.println();<Esc>hi
 
 "======== Key Bindings
 " Remap Esc to get out of insert mode quickly
