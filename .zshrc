@@ -41,7 +41,7 @@ export TERM=xterm-256color
 #export LC_COLLATE=C
 
 ###### Aliases
-# Packet managers
+# Package managers
 if [[ "$OS" == 'Linux' ]]; then
     # apt-get aliases
     alias autoremove="sudo apt-get autoremove"
