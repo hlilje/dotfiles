@@ -41,24 +41,7 @@ export TERM=xterm-256color
 #export LC_COLLATE=C
 
 ###### Aliases
-# Easier dotfiles access
-alias dotfiles="cd ~/Dropbox/dotfiles"
-
-# mvk project shortcut
-alias qwait="cd ~/Dropbox/Education/mvk13/qwait"
-
-# dkand project shortcut
-alias dkand="cd ~/Dropbox/Education/dkand14/random-algorithm"
-
-# komp project shortcut
-alias komp="cd ~/Dropbox/Education/komp14/compiler"
-
-# komp project shortcut
-alias dgi="cd ~/Dropbox/Education/dgi14/project"
-
-# Start IntelliJ IDEA
-alias idea="/opt/idea-IC-135.480/bin/idea.sh"
-
+# Packet managers
 if [[ "$OS" == 'Linux' ]]; then
     # apt-get aliases
     alias autoremove="sudo apt-get autoremove"
@@ -81,6 +64,12 @@ elif [[ "$OS" == 'Darwin' ]]; then
     alias update="brew update"
     alias upgrade="brew upgrade"
 fi
+
+# Easier dotfiles access
+alias dotfiles="cd ~/Dropbox/dotfiles"
+
+# Start IntelliJ IDEA
+alias idea="/opt/idea-IC-135.480/bin/idea.sh"
 
 # Exit all tmux sessions quickly
 alias exitall="tmux kill-server"
