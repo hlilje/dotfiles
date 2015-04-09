@@ -113,42 +113,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
+######## Custom Config ########
+
 # Enable vi commands
 set -o vi
 
 # Enable 256 colours for terminal
 export TERM=xterm-256color
 
-# Used for adk lab
-#export LC_COLLATE=C
-
-# Used for Test01
-export LD_LIBRARY_PATH=/home/hlilje/Dropbox/Education/dkand14/random-algorithm/test/TestU01/lib:${LD_LIBRARY_PATH}
-export LIBRARY_PATH=/home/hlilje/Dropbox/Education/dkand14/random-algorithm/test/TestU01/lib:${LIBRARY_PATH}
-export C_INCLUDE_PATH=/home/hlilje/Dropbox/Education/dkand14/random-algorithm/test/TestU01/include:${C_INCLUDE_PATH}
-export CPLUS_INCLUDE_PATH=/home/hlilje/Dropbox/Education/dkand14/random-algorithm/test/TestU01/include:${C_INCLUDE_PATH}
-
 ### Aliases
 # Easier git access
 alias g="git"
 
-# Easier home access
-alias gh="cd ~"
-
 # Easier dotfiles access
 alias dotfiles="cd ~/Dropbox/dotfiles"
-
-# mvk project shortcut
-alias qwait="cd ~/Dropbox/Education/mvk13/qwait"
-
-# dkand project shortcut
-alias dkand="cd ~/Dropbox/Education/dkand14/random-algorithm"
-
-# komp project shortcut
-alias komp="cd ~/Dropbox/Education/komp14/compiler"
-
-# komp project shortcut
-alias dgi="cd ~/Dropbox/Education/dgi14/project"
 
 # Start IntelliJ IDEA
 alias idea="/opt/idea-IC-135.480/bin/idea.sh"

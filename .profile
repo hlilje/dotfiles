@@ -21,12 +21,11 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-# Add go app engine to path
+######## Custom Config ########
+
+# App Engine
 export PATH=/home/hlilje/go_appengine:$PATH
 
-# Add TestU01 to path
-export PATH=/home/hlilje/Dropbox/Education/dkand14/random-algorithm/test/TestU01:$PATH
-
-# Golang
+# Go
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
