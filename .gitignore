@@ -1,11 +1,11 @@
 *~
 .DS_Store
-.atom
-.filezilla
+.atom/
+.filezilla/
 .git-credentials
-.gnupg
-.oh-my-zsh
-.ssh
-.vim
+.gnupg/
+.oh-my-zsh/
+.ssh/
+.vim/
 User/
 iTerm2/
