@@ -37,11 +37,7 @@ set -o vi
 # Enable 256 colours for terminal
 export TERM=xterm-256color
 
-# Used for adk lab
-#export LC_COLLATE=C
-
 ###### Aliases
-# Package managers
 if [[ "$OS" == 'Linux' ]]; then
     # apt-get aliases
     alias autoremove="sudo apt-get autoremove"
