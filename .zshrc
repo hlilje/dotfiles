@@ -58,7 +58,7 @@ elif [[ "$OS" == 'Darwin' ]]; then
     alias remove="brew remove"
     alias search="brew search"
     alias update="brew update"
-    alias upgrade="brew upgrade"
+    alias upgrade="brew upgrade --all"
 fi
 
 # Easier dotfiles access
