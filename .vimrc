@@ -298,6 +298,15 @@ if has("gui_running")
   autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call ScreenSave() | endif
 endif
 
+""" Set highlighting of column 80 if not set, otherwise remove it
+function! g:ToggleColorColumn()
+  if &colorcolumn != ''
+    setlocal colorcolumn&
+  else
+    setlocal colorcolumn=80
+  endif
+endfunction
+
 "======== Abbreviations
 """ C++
 ab sout std::cout << << std::endl;<Esc>13hi
@@ -380,3 +389,5 @@ nnoremap <Leader>rp :RainbowParenthesesToggle<CR>
         \ :RainbowParenthesesLoadSquare<CR>
         \ :RainbowParenthesesLoadBraces<CR>
         \ :RainbowParenthesesLoadChevrons<CR>
+" Toggle highlighting of column 80
+nnoremap <silent> <Leader>cc :call g:ToggleColorColumn()<CR>
