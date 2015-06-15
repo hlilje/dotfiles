@@ -37,6 +37,9 @@ set -o vi
 # Enable 256 colours for terminal
 export TERM=xterm-256color
 
+# Always source virtualenvwrapper
+source /usr/local/bin/virtualenvwrapper.sh
+
 ###### Aliases
 if [[ "$OS" == 'Linux' ]]; then
     # apt-get aliases
