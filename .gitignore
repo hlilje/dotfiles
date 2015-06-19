@@ -1,11 +1,16 @@
-*~
-.DS_Store
-.atom/
-.filezilla/
-.git-credentials
-.gnupg/
-.oh-my-zsh/
-.ssh/
-.vim/
-User/
-iTerm2/
+# Ignore everything
+*
+
+# Whitelist
+!.bash_logout
+!.bashrc
+!.gitconfig
+!.gitignore
+!.nvimrc
+!.profile
+!.tmux.conf
+!.vimrc
+!.zprofile
+!.zshrc
+!README.md
+!symlink.sh
