@@ -1,12 +1,11 @@
 # OS-specific settings
 OS=`uname`
 
-###### oh-my-zsh configuration
-# Path to oh-my-zsh installation
+######## Oh My Zsh Configuration ########
+# Path to Oh My Zsh installation
 export ZSH=$HOME/.oh-my-zsh
 
-### Theme to load
-# Set to 'random' for random theme
+# Theme to load, set to 'random' for random theme
 ZSH_THEME="mh"
 #ZSH_THEME="hlilje"
 
@@ -16,31 +15,36 @@ COMPLETION_WAITING_DOTS="true"
 # Command execution time stamp shown in the history command output
 HIST_STAMPS="yyyy-mm-dd"
 
-###### oh-my-zsh plugin settings
-### Plugins to load
+######## Oh My Zsh Plugin Settings ########
+# Plugins to load
 plugins=(git tmux colored-man vundle vi-mode)
 
 # Automatically start a tmux session
 ZSH_TMUX_AUTOSTART="true"
 
-###### Scripts
+######## Scripts ########
 # Source startup script
 source $ZSH/oh-my-zsh.sh
 
 # Add substring history search
 source $ZSH/plugins/history-substring-search/history-substring-search.zsh
 
-###### zsh configuration
-# Enable Vi commands
-set -o vi
-
-# Enable 256 colours for terminal
-export TERM=xterm-256color
-
 # Always source virtualenvwrapper
 source /usr/local/bin/virtualenvwrapper.sh
 
-###### Aliases
+######## Zsh Configuration ########
+# Enable Vi commands
+set -o vi
+
+######## Exports ########
+# Enable 256 colours for terminal
+export TERM=xterm-256color
+
+# Display unicode properly
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+######## Aliases ########
 if [[ "$OS" == 'Linux' ]]; then
     # apt-get aliases
     alias autoremove="sudo apt-get autoremove"
@@ -73,6 +77,6 @@ alias idea="/opt/idea-IC-135.480/bin/idea.sh"
 # Exit all tmux sessions quickly
 alias exitall="tmux kill-server"
 
-###### Key Bindings
-# Workaround for tmux/zsh bug
+######## Key Bindings ########
+# Workaround for tmux/Zsh bug
 bindkey '^R' history-incremental-search-backward
