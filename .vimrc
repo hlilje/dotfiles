@@ -230,6 +230,9 @@ let g:airline#extensions#tabline#enabled = 1 " Enable buffer tabs
 """ vim-go
 let g:go_fmt_autosave = 0 " Disable auto fmt on save
 
+""" CtrlP
+let g:ctrlp_cmd = 'CtrlPBuffer' " Search buffers by default
+
 "======== Macros
 """ Enable macro to match html/xml/etc. tags with %
 runtime macros/matchit.vim
