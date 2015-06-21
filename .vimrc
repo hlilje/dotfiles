@@ -1,4 +1,4 @@
-set nocompatible " Enable Vim mode
+set nocompatible " Disable vi compatibility
 
 "======== Unix Specific Settings
 if has("unix")
