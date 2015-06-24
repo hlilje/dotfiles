@@ -185,6 +185,9 @@ set backspace=indent,eol,start
 " Set how these whitspace chars should be displayed
 set listchars=tab:>-,trail:·,eol:$,extends:>,precedes:<,nbsp:_
 
+"======== Clipboard
+set clipboard^=unnamed " Copy to system clipboard by default
+
 "======== Leader
 " Set the leader key to somewhere reasonable
 let mapleader = ","
