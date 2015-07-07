@@ -44,6 +44,10 @@ export TERM=xterm-256color
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+# Use a sensible text editor
+export VISUAL=vim
+export EDITOR=vim
+
 ######## Aliases ########
 if [[ "$OS" == 'Linux' ]]; then
     # apt-get aliases

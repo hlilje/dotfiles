@@ -11,4 +11,7 @@ if [[ "$OS" == 'Linux' ]]; then
 elif [[ "$OS" == 'Darwin' ]]; then
     # Use Homebrew before system programs
     export PATH="/usr/local/bin:$PATH"
+
+    # Include sbin for RabbitMQ
+    export PATH=$PATH:/usr/local/sbin
 fi
