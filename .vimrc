@@ -139,6 +139,8 @@ set sidescrolloff=4 " Number of lines to keep when scrolling sideways
 """ Use specific settings for different languages
 autocmd FileType html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType css setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType scss setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType sass setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType php setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType vim setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType go setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
