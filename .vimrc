@@ -373,8 +373,8 @@ inoremap <C-Space> <C-x><C-o>
 "======== Leader Bindings
 " Mapping to edit the vimrc quickly
 nnoremap <Leader>ev :e $MYVIMRC<CR>
-" Mapping to write and source the current file quickly
-nnoremap <Leader>sv :w<CR> :so %<CR>
+" Mapping to write and source the vimrc quickly
+nnoremap <Leader>sv :w<CR> :source $MYVIMRC<CR>
 " Format everything quickly
 nnoremap <Leader>fa ggVG=
 " Change dir globally to active window
