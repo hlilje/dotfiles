@@ -60,10 +60,6 @@ if [[ "$OS" == 'Linux' ]]; then
     alias search="sudo apt-get search"
     alias update="sudo apt-get update"
     alias upgrade="sudo apt-get upgrade"
-
-    # Use xclip as alternative to pbcopy/pbpaste
-    alias pbcopy='xclip -selection clipboard'
-    alias pbpaste='xclip -selection clipboard -o'
 elif [[ "$OS" == 'Darwin' ]]; then
     # Brew aliases
     alias doctor="brew doctor"
