@@ -18,7 +18,7 @@ if has("unix")
     endif
 
     " Set font and font size (different syntax for Ubuntu)
-    "set guifont=Ubuntu\ Mono\ 11
+    " set guifont=Ubuntu\ Mono\ 11
     set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
   else
     set guifont=Source\ Code\ Pro\ for\ Powerline:h12
@@ -41,7 +41,7 @@ if has("win32")
   endf
 
   " Set font and font size
-  "set guifont=Consolas:h10
+  " set guifont=Consolas:h10
   set guifont=Source_Code_Pro:h9
 endif
 
@@ -51,13 +51,12 @@ endif
 """ GitHub
 Plugin 'gmarik/vundle'
 
-" TODO Does not colour line markers unless vimrc is reloaded
 Plugin 'airblade/vim-gitgutter'
-"Plugin 'altercation/vim-colors-solarized'
+" Plugin 'altercation/vim-colors-solarized'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'bling/vim-airline'
-"Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'edkolev/tmuxline.vim'
+" Plugin 'christoomey/vim-tmux-navigator'
+" Plugin 'edkolev/tmuxline.vim'
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
 Plugin 'godlygeek/tabular'
@@ -118,12 +117,12 @@ set showcmd " Display incomplete commands at bottom
 set showmatch " Show matching parentheses
 set title " Set the Vim title when running in an xterm
 set cursorline " Highlight current line
-"highlight Normal ctermbg=NONE " Use transparent text background in terminal
+" highlight Normal ctermbg=NONE " Use transparent text background in terminal
 
 "======== Line Breaks
 set linebreak nolist textwidth=0 wrapmargin=0 " Disables auto line break
 set nowrap " Disable line wrapping
-"set tw=100 " When to break lines, this must be 0 to disable auto line break
+" set tw=100 " When to break lines, this must be 0 to disable auto line break
 
 "======== Error Messages
 set noerrorbells " Disable error bells
@@ -198,8 +197,15 @@ let mapleader = ","
 """ AutoClose
 let g:AutoCloseExpandSpace = 0 " Disable space to not break abbreviation expansion
 
+""" CtrlP
+let g:ctrlp_cmd = 'CtrlPBuffer' " Search buffers by default
+
 """ EasyMotion
 let g:EasyMotion_smartcase = 1 " Match like smartcase for global search
+
+""" Git Gutter
+" Copied from source to force a reload of colours due to some GUI bug
+autocmd VimEnter * call gitgutter#highlight#define_sign_column_highlight() | call gitgutter#highlight#define_highlights()
 
 """ indentLine
 let g:indentLine_faster = 1 " Make it faster
@@ -213,12 +219,11 @@ let g:rehash256 = 1 " Make terminal Vim look similar to the dark gui theme
 let g:nerdtree_tabs_open_on_gui_startup = 0 " Disable open on startup
 
 """ Rainbow Parentheses
-" TODO Does not toggle when autoloading on startup
-"au VimEnter * RainbowParenthesesToggle " Auto load
-au Syntax * RainbowParenthesesLoadRound " ()
-au Syntax * RainbowParenthesesLoadSquare " []
-au Syntax * RainbowParenthesesLoadBraces " {}
-au Syntax * RainbowParenthesesLoadChevrons " <>
+" autocmd VimEnter * RainbowParenthesesToggle " Auto load
+autocmd Syntax * RainbowParenthesesLoadRound " ()
+autocmd Syntax * RainbowParenthesesLoadSquare " []
+autocmd Syntax * RainbowParenthesesLoadBraces " {}
+autocmd Syntax * RainbowParenthesesLoadChevrons " <>
 
 """ sneak.vim
 let g:sneak#s_next = 1 " Use 's' to jump to next match
@@ -234,9 +239,6 @@ let g:airline#extensions#tabline#enabled = 1 " Enable buffer tabs
 
 """ vim-go
 let g:go_fmt_autosave = 0 " Disable auto fmt on save
-
-""" CtrlP
-let g:ctrlp_cmd = 'CtrlPBuffer' " Search buffers by default
 
 "======== Macros
 """ Enable macro to match html/xml/etc. tags with %
