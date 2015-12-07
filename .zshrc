@@ -17,7 +17,7 @@ HIST_STAMPS="yyyy-mm-dd"
 
 ######## Oh My Zsh Plugin Settings ########
 # Plugins to load
-plugins=(git tmux colored-man-pages vundle vi-mode autoenv)
+plugins=(git tmux colored-man-pages vundle vi-mode)
 
 # Automatically start a tmux session
 ZSH_TMUX_AUTOSTART="true"
