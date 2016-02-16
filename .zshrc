@@ -6,8 +6,7 @@ OS=`uname`
 export ZSH=$HOME/.oh-my-zsh
 
 # Theme to load, set to 'random' for random theme
-ZSH_THEME="mh"
-#ZSH_THEME="hlilje"
+ZSH_THEME="hlilje"
 
 # Display red dots whilst waiting for completion
 COMPLETION_WAITING_DOTS="true"
