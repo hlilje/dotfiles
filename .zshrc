@@ -32,6 +32,9 @@ source $ZSH/plugins/history-substring-search/history-substring-search.zsh
 source /usr/local/bin/virtualenvwrapper.sh
 
 ######## Zsh Configuration ########
+# Remove right prompt trailing space
+ZLE_RPROMPT_INDENT=0
+
 # Enable Vi commands
 set -o vi
 
@@ -73,9 +76,6 @@ fi
 
 # Easier dotfiles access
 alias dotfiles="cd ~/Dropbox/dotfiles"
-
-# Start IntelliJ IDEA
-alias idea="/opt/idea-IC-135.480/bin/idea.sh"
 
 # Exit all tmux sessions quickly
 alias exitall="tmux kill-server"
