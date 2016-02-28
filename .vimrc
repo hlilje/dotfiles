@@ -40,7 +40,7 @@ if has("win32")
   endf
 
   " Set font and font size
-  set guifont=Source_Code_Pro_for_Powerline:h9
+  set guifont=Source_Code_Pro:h9
 endif
 
 "======== Vundle Bundles
