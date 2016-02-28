@@ -18,7 +18,6 @@ if has("unix")
     endif
 
     " Set font and font size (different syntax for Ubuntu)
-    " set guifont=Ubuntu\ Mono\ 11
     set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
   else
     set guifont=Source\ Code\ Pro\ for\ Powerline:h12
@@ -41,8 +40,7 @@ if has("win32")
   endf
 
   " Set font and font size
-  " set guifont=Consolas:h10
-  set guifont=Source_Code_Pro:h9
+  set guifont=Source_Code_Pro_for_Powerline:h9
 endif
 
 "======== Vundle Bundles
