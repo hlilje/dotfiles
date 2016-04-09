@@ -44,8 +44,8 @@ if has("win32")
 endif
 
 "======== Vundle Bundles
-" Bundle declarations have to happen when filetype off, and filetype plugin
-" indent on have to come after them
+" Bundle declarations have to happen when `filetype off`, and `filetype plugin
+" indent on` have to come after them
 """ GitHub
 Plugin 'gmarik/vundle'
 
@@ -61,7 +61,6 @@ Plugin 'godlygeek/tabular'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'justinmk/vim-sneak'
 Plugin 'kien/ctrlp.vim'
-Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'kshenoy/vim-signature'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'majutsushi/tagbar'
@@ -79,10 +78,10 @@ Plugin 'Yggdroot/indentLine'
 
 "======== Language Options
 """ Vim language
-set langmenu=en_US.UTF-8 " Set the language of the menu (gvim)
-let $LANG = 'en' " Set the language
+set langmenu=en_GB.UTF-8 " Set the language of the menu (gvim)
+let $LANG = 'en_GB' " Set the language
 """ Spell check
-set spelllang=en spell
+set spelllang=en_gb spell
 set nospell " Disable by default
 
 "======== Program Related
@@ -215,13 +214,6 @@ let g:rehash256 = 1 " Make terminal Vim look similar to the dark gui theme
 
 """ NERDTree(Tabs)
 let g:nerdtree_tabs_open_on_gui_startup = 0 " Disable open on startup
-
-""" Rainbow Parentheses
-" autocmd VimEnter * RainbowParenthesesToggle " Auto load
-autocmd Syntax * RainbowParenthesesLoadRound " ()
-autocmd Syntax * RainbowParenthesesLoadSquare " []
-autocmd Syntax * RainbowParenthesesLoadBraces " {}
-autocmd Syntax * RainbowParenthesesLoadChevrons " <>
 
 """ sneak.vim
 let g:sneak#s_next = 1 " Use 's' to jump to next match
@@ -391,11 +383,5 @@ nnoremap <Leader>nn :nohlsearch<CR>
 nnoremap <Leader>tb :TagbarToggle<CR>
 " Toggle whitespace visibility
 nnoremap <silent> <Leader>sw :set nolist!<CR>
-" Toggle rainbow parentheses, workaround for gvim terminal bug
-nnoremap <Leader>rp :RainbowParenthesesToggle<CR>
-        \ :RainbowParenthesesLoadRound<CR>
-        \ :RainbowParenthesesLoadSquare<CR>
-        \ :RainbowParenthesesLoadBraces<CR>
-        \ :RainbowParenthesesLoadChevrons<CR>
 " Toggle highlighting of column 80
 nnoremap <silent> <Leader>cc :call g:ToggleColorColumn()<CR>
