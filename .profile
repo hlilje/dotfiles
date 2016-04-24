@@ -20,12 +20,3 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
-
-######## Custom Config ########
-
-# App Engine
-export PATH=/home/hlilje/go_appengine:$PATH
-
-# Go
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin

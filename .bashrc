@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -84,6 +84,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -112,21 +115,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-######## Custom Config ########
-
-# Enable vi commands
-set -o vi
-
-# Enable 256 colours for terminal
-export TERM=xterm-256color
-
-### Aliases
-# Easier git access
-alias g="git"
-
-# Easier dotfiles access
-alias dotfiles="cd ~/Dropbox/dotfiles"
-
-# Start IntelliJ IDEA
-alias idea="/opt/idea-IC-135.480/bin/idea.sh"
