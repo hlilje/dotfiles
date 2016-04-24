@@ -31,13 +31,6 @@ source $ZSH/plugins/history-substring-search/history-substring-search.zsh
 # Always source virtualenvwrapper
 source /usr/local/bin/virtualenvwrapper.sh
 
-######## Zsh Configuration ########
-# Remove right prompt trailing space
-ZLE_RPROMPT_INDENT=0
-
-# Enable Vi commands
-set -o vi
-
 ######## Exports ########
 # Enable 256 colours for terminal
 export TERM=xterm-256color
@@ -46,9 +39,16 @@ export TERM=xterm-256color
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# Use a sensible text editor
+# Use Vim as text editor
 export VISUAL=vim
 export EDITOR=vim
+
+######## Zsh Configuration ########
+# Remove right prompt trailing space
+ZLE_RPROMPT_INDENT=0
+
+# Enable Vi commands
+set -o vi
 
 ######## Aliases ########
 if [[ "$OS" == 'Linux' ]]; then
