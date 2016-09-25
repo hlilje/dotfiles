@@ -1,7 +1,7 @@
 set nocompatible " Disable vi compatibility
 
 "======== Unix Specific Settings
-if has("unix")
+if has('unix')
   " Vundle settings
   set runtimepath+=~/.vim/bundle/vundle/
   call vundle#rc()
@@ -27,10 +27,10 @@ if has("unix")
 endif
 
 "======== Windows Specific Settings
-if has("win32")
+if has('win32')
   " Vundle settings
   set runtimepath+=~/vimfiles/bundle/vundle/
-  call vundle#rc("~/vimfiles/bundle")
+  call vundle#rc('~/vimfiles/bundle')
 
   " Function to install Vundle bundles at the right place on Windows
   func! vundle#rc(...) abort
@@ -101,7 +101,7 @@ source $VIMRUNTIME/mswin.vim " Gives Windows key mappings like Ctrl-Y
 "======== GUI Settings
 set guioptions-=m " Remove menu bar
 set guioptions-=T " Remove toolbar
-set guioptions+=LlRrb " Bugfix: Must add scrollbars first
+set guioptions+=LlRrb " Must add scrollbars first due to bug
 set guioptions-=LlRrb " Remove scrollbars
 
 "======== Visual Settings
@@ -188,7 +188,7 @@ set clipboard^=unnamed " Copy to system clipboard by default
 
 "======== Leader
 " Set the leader key to somewhere reasonable
-let mapleader = ","
+let mapleader = ','
 
 "======== Plugin Settings
 """ AutoClose
@@ -240,11 +240,9 @@ runtime macros/matchit.vim
 let g:screen_size_restore_pos = 1 " To enable the saving and restoring of screen positions
 let g:screen_size_by_vim_instance = 1 " Restore each instance separately
 
-if has("gui_running")
+if has('gui_running')
   function! ScreenFilename()
-    if has('amiga')
-      return "s:.vimsize"
-    elseif has('win32')
+    if has('win32')
       return $HOME.'\_vimsize'
     else
       return $HOME.'/.vimsize'
@@ -256,13 +254,13 @@ if has("gui_running")
     " from values stored in vimsize file.
     " Must set font first so columns and lines are based on font size.
     let f = ScreenFilename()
-    if has("gui_running") && g:screen_size_restore_pos && filereadable(f)
-      let vim_instance = (g:screen_size_by_vim_instance == 1?(v:servername):'GVIM')
+    if has('gui_running') && g:screen_size_restore_pos && filereadable(f)
+      let vim_instance = g:screen_size_by_vim_instance == 1 ? v:servername : 'GVIM'
       for line in readfile(f)
         let sizepos = split(line)
         if len(sizepos) == 5 && sizepos[0] == vim_instance
-          silent! execute "set columns=".sizepos[1]." lines=".sizepos[2]
-          silent! execute "winpos ".sizepos[3]." ".sizepos[4]
+          silent! execute 'set columns='.sizepos[1].' lines='.sizepos[2]
+          silent! execute 'winpos '.sizepos[3]." ".sizepos[4]
           return
         endif
       endfor
@@ -271,11 +269,11 @@ if has("gui_running")
 
   function! ScreenSave()
     " Save window size and position.
-    if has("gui_running") && g:screen_size_restore_pos
-      let vim_instance = (g:screen_size_by_vim_instance == 1?(v:servername):'GVIM')
+    if has('gui_running') && g:screen_size_restore_pos
+      let vim_instance = g:screen_size_by_vim_instance == 1 ? v:servername : 'GVIM'
       let data = vim_instance . ' ' . &columns . ' ' . &lines . ' ' .
-            \ (getwinposx()<0?0:getwinposx()) . ' ' .
-            \ (getwinposy()<0?0:getwinposy())
+            \ (getwinposx() < 0 ? 0 :getwinposx()) . ' ' .
+            \ (getwinposy() < 0 ? 0 :getwinposy())
       let f = ScreenFilename()
       if filereadable(f)
         let lines = readfile(f)
@@ -353,7 +351,7 @@ map <F3> :source ~/.vimsession <CR>
 nnoremap zl 80zl
 nnoremap zh 80zh
 " Toggle fold with space, works as normal if no fold
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+nnoremap <silent> <Space> @=(foldlevel('.') ? 'za' : '\<Space>')<CR>
 vnoremap <Space> zf
 " Toggle line wrap
 map <F9> :set wrap!<CR>
