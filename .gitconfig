@@ -1,3 +1,5 @@
+[core]
+    autocrlf = false
 [user]
 	name = Hampus Liljekvist
 	email = hlilje@users.noreply.github.com
