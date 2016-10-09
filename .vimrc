@@ -1,21 +1,17 @@
 set nocompatible
 
+" Init Vundle
+filetype off
+set runtimepath+=~/.vim/bundle/Vundle.vim
+call vundle#begin('~/.vim/bundle')
+
 """ Unix specific settings
 if has('unix')
-  " Init Vundle
-  set runtimepath+=~/.vim/bundle/vundle/
-  call vundle#rc()
-
   " Linux (Ubuntu) specific
   if system('uname')=~'Linux'
     " This line should not be removed as it ensures that various options are
     " properly set to work with the Vim-related packages available in Debian
     runtime! debian.vim
-
-    " BUGFIX: Force Vim to detect gnome-terminal's colour support
-    if $COLORTERM == 'gnome-terminal'
-      set t_Co=256
-    endif
 
     set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
   else
@@ -27,22 +23,11 @@ endif
 
 """ Windows specific settings
 if has('win32')
-  " Init Vundle
-  set runtimepath+=~/vimfiles/bundle/vundle/
-  call vundle#rc('~/vimfiles/bundle')
-
-  " BUGFIX: Function to install Vundle bundles at the right place on Windows
-  func! vundle#rc(...) abort
-    let g:bundle_dir = len(a:000) > 0 ? expand(a:1, 1) : expand('$HOME/vimfiles/bundle', 1)
-    let g:vundle_log = []
-    call vundle#config#init()
-  endf
-
   set guifont=Source_Code_Pro:h9
 endif
 
 "" Vundle bundles
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 " Plugin 'altercation/vim-colors-solarized'
 Plugin 'bkad/CamelCaseMotion'
@@ -70,6 +55,10 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/a.vim'
 Plugin 'Yggdroot/indentLine'
 
+" Required after loading plugins
+call vundle#end()
+filetype plugin indent on
+
 """ Settings
 autocmd FileType css setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType go setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
@@ -84,8 +73,6 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 colorscheme molokai
 " highlight Normal ctermbg=NONE
-filetype off
-filetype plugin indent on
 syntax on
 let mapleader = ','
 let $LANG = 'en_GB'
