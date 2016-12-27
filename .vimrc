@@ -26,7 +26,7 @@ if has('win32')
   set guifont=Source_Code_Pro:h9
 endif
 
-"" Vundle bundles
+""" Vundle bundles
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'airblade/vim-gitgutter'
 " Plugin 'altercation/vim-colors-solarized'
