@@ -1,4 +1,4 @@
-""" Macros
+""" Vim files
 runtime! defaults.vim
 runtime! macros/matchit.vim
 
