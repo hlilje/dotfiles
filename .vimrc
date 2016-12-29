@@ -1,6 +1,8 @@
-set nocompatible
+""" Macros
+runtime! defaults.vim
+runtime! macros/matchit.vim
 
-" Init Vundle
+""" Init Vundle
 filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin('~/.vim/bundle')
@@ -73,24 +75,21 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 colorscheme molokai
 " highlight Normal ctermbg=NONE
-syntax on
 let mapleader = ','
 let $LANG = 'en_GB'
 set encoding=utf-8
 set langmenu=en_GB.UTF-8
 set autoindent copyindent smartindent
 set background=dark
-set backspace=indent,eol,start
 set clipboard^=unnamed
 set cursorline
 set number
-set ruler
 set expandtab softtabstop=4 tabstop=4
 set guioptions+=LlRrb " BUGFIX: Must add scrollbars before removing them
 set guioptions-=LlRrb guioptions-=T guioptions-=m
 set hidden
 set history=1000 undolevels=1000
-set hlsearch incsearch ignorecase smartcase
+set hlsearch ignorecase smartcase
 set showmatch
 set listchars=tab:>-,trail:·,eol:$,extends:>,precedes:<,nbsp:_
 set nobackup nowritebackup noswapfile
@@ -98,12 +97,11 @@ set noerrorbells visualbell t_vb= " Set the visual bell to do nothing
 set nospell spelllang=en_gb
 set scrolloff=8 sidescrolloff=4
 set textwidth=0 shiftwidth=4
-set showcmd
 set title
 set nowrap wrapmargin=0
 set linebreak
 set omnifunc=syntaxcomplete#Complete
-set wildmenu wildmode=list:full
+set wildmode=list:full
 
 """ Plugin settings
 " AutoClose
@@ -134,9 +132,6 @@ set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 " vim-go
 let g:go_fmt_autosave = 0
-
-""" Macros
-runtime macros/matchit.vim
 
 """ Custom functions
 " Remembering and restoring gVim's window size and position
