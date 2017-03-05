@@ -186,7 +186,7 @@ if has('gui_running')
   if !exists('g:screen_size_by_vim_instance')
     let g:screen_size_by_vim_instance = 1
   endif
-  autocmd VimEnter * if g:screen_size_restore_pos == 1 | call ScreenRestore() | endif
+  autocmd VimEnter * if g:screen_size_restore_pos == 1 | call ScreenRestore() | wincmd = | endif
   autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call ScreenSave() | endif
 endif
 
