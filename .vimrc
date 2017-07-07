@@ -81,7 +81,7 @@ set encoding=utf-8
 set langmenu=en_GB.UTF-8
 set autoindent copyindent smartindent
 set background=dark
-set clipboard^=unnamed
+set clipboard=unnamed
 set cursorline
 set number
 set expandtab softtabstop=4 tabstop=4
