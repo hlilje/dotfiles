@@ -62,6 +62,7 @@ call vundle#end()
 filetype plugin indent on
 
 """ Settings
+behave mswin
 autocmd FileType css setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType go setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd FileType html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
@@ -71,8 +72,6 @@ autocmd FileType sass setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType scss setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType vim setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd GUIEnter * set visualbell t_vb= " BUGFIX: t_vb must be set after the GUI is loaded
-source $VIMRUNTIME/mswin.vim
-behave mswin
 colorscheme molokai
 " highlight Normal ctermbg=NONE
 let mapleader = ','
