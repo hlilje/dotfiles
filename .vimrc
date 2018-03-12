@@ -197,6 +197,9 @@ function! g:ToggleColorColumn()
   endif
 endfunction
 
+""" Commands
+command Rediff diffoff | diffthis
+
 """ Abbreviations
 ab sout std::cout << << std::endl;<Esc>13hi
 ab syso System.out.println();<Esc>hi
