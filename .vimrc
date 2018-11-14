@@ -79,6 +79,7 @@ let $LANG = 'en_GB'
 set encoding=utf-8
 set langmenu=en_GB.UTF-8
 set autoindent copyindent smartindent
+set autoread
 set background=dark
 set clipboard=unnamed
 set cursorline
