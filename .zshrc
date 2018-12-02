@@ -31,6 +31,12 @@ source $ZSH/plugins/history-substring-search/history-substring-search.zsh
 # Always source virtualenvwrapper
 source /usr/local/bin/virtualenvwrapper.sh
 
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/hlilje/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hlilje/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/hlilje/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/hlilje/google-cloud-sdk/completion.zsh.inc'; fi
+
 ######## Exports ########
 # Enable 256 colours for terminal
 export TERM=xterm-256color
