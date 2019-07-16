@@ -49,6 +49,10 @@ export LANG=en_US.UTF-8
 export VISUAL=vim
 export EDITOR=vim
 
+# Don't install gems as root
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+
 ######## Zsh Configuration ########
 # Remove right prompt trailing space
 ZLE_RPROMPT_INDENT=0
@@ -58,16 +62,16 @@ set -o vi
 
 ######## Aliases ########
 if [[ "$OS" == 'Linux' ]]; then
-    # apt-get aliases
-    alias autoremove="sudo apt-get autoremove"
-    alias clean="sudo apt-get clean"
-    alias dist-upgrade="sudo apt-get dist-upgrade"
-    alias install="sudo apt-get install"
-    alias purge="sudo apt-get purge"
-    alias remove="sudo apt-get remove"
-    alias search="sudo apt-get search"
-    alias update="sudo apt-get update"
-    alias upgrade="sudo apt-get upgrade"
+    # apt aliases
+    alias autoremove="sudo apt autoremove"
+    alias clean="sudo apt clean"
+    alias dist-upgrade="sudo apt dist-upgrade"
+    alias install="sudo apt install"
+    alias purge="sudo apt purge"
+    alias remove="sudo apt remove"
+    alias search="sudo apt search"
+    alias update="sudo apt update"
+    alias upgrade="sudo apt upgrade"
 elif [[ "$OS" == 'Darwin' ]]; then
     # Brew aliases
     alias doctor="brew doctor"
