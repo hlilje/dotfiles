@@ -29,7 +29,7 @@ source $ZSH/oh-my-zsh.sh
 source $ZSH/plugins/history-substring-search/history-substring-search.zsh
 
 # Always source virtualenvwrapper
-source /usr/local/bin/virtualenvwrapper.sh
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/hlilje/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hlilje/google-cloud-sdk/path.zsh.inc'; fi
@@ -60,6 +60,9 @@ ZLE_RPROMPT_INDENT=0
 # Enable Vi commands
 set -o vi
 
+# Disable bell
+unsetopt BEEP
+
 ######## Aliases ########
 if [[ "$OS" == 'Linux' ]]; then
     # apt aliases
@@ -72,6 +75,9 @@ if [[ "$OS" == 'Linux' ]]; then
     alias search="sudo apt search"
     alias update="sudo apt update"
     alias upgrade="sudo apt upgrade"
+
+    # Easier dotfiles access
+    alias dotfiles="cd /mnt/d/User\ Files/Dropbox/dotfiles"
 elif [[ "$OS" == 'Darwin' ]]; then
     # Brew aliases
     alias doctor="brew doctor"
@@ -82,10 +88,10 @@ elif [[ "$OS" == 'Darwin' ]]; then
     alias search="brew search"
     alias update="brew update"
     alias upgrade="brew upgrade"
-fi
 
-# Easier dotfiles access
-alias dotfiles="cd ~/Dropbox/dotfiles"
+    # Easier dotfiles access
+    alias dotfiles="cd ~/Dropbox/dotfiles"
+fi
 
 # Exit all tmux sessions quickly
 alias exitall="tmux kill-server"
