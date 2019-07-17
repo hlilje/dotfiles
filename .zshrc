@@ -29,7 +29,11 @@ source $ZSH/oh-my-zsh.sh
 source $ZSH/plugins/history-substring-search/history-substring-search.zsh
 
 # Always source virtualenvwrapper
-source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+if [[ "$OS" == 'Linux' ]]; then
+    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+elif [[ "$OS" == 'Darwin' ]]; then
+    source /usr/local/bin/virtualenvwrapper.sh
+fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/hlilje/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hlilje/google-cloud-sdk/path.zsh.inc'; fi
