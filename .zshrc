@@ -57,6 +57,11 @@ export EDITOR=vim
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 
+# X Server clipboard fix on Windows
+if [[ "$OS" == 'Linux' ]]; then
+    export DISPLAY=localhost:0.0
+fi
+
 ######## Zsh Configuration ########
 # Remove right prompt trailing space
 ZLE_RPROMPT_INDENT=0
