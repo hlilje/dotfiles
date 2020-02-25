@@ -32,7 +32,7 @@ source $ZSH/plugins/history-substring-search/history-substring-search.zsh
 if [[ "$OS" == 'Linux' ]]; then
     source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 elif [[ "$OS" == 'Darwin' ]]; then
-    source /usr/local/bin/virtualenvwrapper.sh
+    #source /usr/local/bin/virtualenvwrapper.sh
 fi
 
 # The next line updates PATH for the Google Cloud SDK.
