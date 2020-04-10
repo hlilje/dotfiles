@@ -28,13 +28,6 @@ source $ZSH/oh-my-zsh.sh
 # Add substring history search
 source $ZSH/plugins/history-substring-search/history-substring-search.zsh
 
-# Always source virtualenvwrapper
-if [[ "$OS" == 'Linux' ]]; then
-    source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
-elif [[ "$OS" == 'Darwin' ]]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-fi
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/hlilje/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hlilje/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -84,9 +77,6 @@ if [[ "$OS" == 'Linux' ]]; then
     alias search="sudo apt search"
     alias update="sudo apt update"
     alias upgrade="sudo apt upgrade"
-
-    # Easier dotfiles access
-    alias dotfiles="cd /mnt/d/User\ Files/Dropbox/dotfiles"
 elif [[ "$OS" == 'Darwin' ]]; then
     # Brew aliases
     alias doctor="brew doctor"
@@ -97,9 +87,6 @@ elif [[ "$OS" == 'Darwin' ]]; then
     alias search="brew search"
     alias update="brew update"
     alias upgrade="brew upgrade"
-
-    # Easier dotfiles access
-    alias dotfiles="cd ~/Dropbox/dotfiles"
 fi
 
 # Exit all tmux sessions quickly
