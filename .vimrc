@@ -30,17 +30,13 @@ endif
 
 """ Vundle bundles
 Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'airblade/vim-gitgutter'
-" Plugin 'altercation/vim-colors-solarized'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'bling/vim-airline'
-" Plugin 'christoomey/vim-tmux-navigator'
-" Plugin 'edkolev/tmuxline.vim'
 Plugin 'ervandew/supertab'
 Plugin 'fatih/vim-go'
-Plugin 'godlygeek/tabular'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'justinmk/vim-sneak'
 Plugin 'kien/ctrlp.vim'
 Plugin 'kshenoy/vim-signature'
 Plugin 'Lokaltog/vim-easymotion'
@@ -49,13 +45,14 @@ Plugin 'matze/vim-move'
 Plugin 'Raimondi/delimitMate'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'tomasr/molokai'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/a.vim'
 Plugin 'Yggdroot/indentLine'
+
+Plugin 'tomasr/molokai'
 
 " Required after loading plugins
 call vundle#end()
@@ -71,9 +68,7 @@ autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType sass setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType scss setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType vim setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-autocmd GUIEnter * set visualbell t_vb= " BUGFIX: t_vb must be set after the GUI is loaded
 colorscheme molokai
-" highlight Normal ctermbg=NONE
 let mapleader = ','
 let $LANG = 'en_GB'
 set encoding=utf-8
@@ -85,8 +80,9 @@ set clipboard=unnamed
 set cursorline
 set number
 set expandtab softtabstop=4 tabstop=4
-set guioptions+=LlRrb " BUGFIX: Must add scrollbars before removing them
+set guioptions+=LlRrb " Must add scrollbars before removing them
 set guioptions-=LlRrb guioptions-=T guioptions-=m
+set termguicolors
 set hidden
 set history=1000 undolevels=1000
 set hlsearch ignorecase smartcase
@@ -104,28 +100,18 @@ set omnifunc=syntaxcomplete#Complete
 set wildmode=list:full
 
 """ Plugin settings
-" AutoClose
-let g:AutoCloseExpandSpace = 0
 " CtrlP
 let g:ctrlp_cmd = 'CtrlPBuffer'
 " EasyMotion
 let g:EasyMotion_smartcase = 1
-" Git Gutter
-" BUGFIX: Copied from source to force a reload of colours
-autocmd VimEnter * call gitgutter#highlight#define_sign_column_highlight() | call gitgutter#highlight#define_highlights()
 " indentLine
 let g:indentLine_faster = 1
-autocmd GUIEnter * syntax on " BUGFIX: For some reason this has to be redone
 " Molokai
-" let g:molokai_original = 1
 let g:rehash256 = 1
 " NERDTree(Tabs)
 let g:nerdtree_tabs_open_on_gui_startup = 0
-" sneak.vim
-let g:sneak#s_next = 1
-let g:sneak#use_ic_scs = 1
 " Syntastic
-let g:syntastic_cpp_compiler_options = '-std=c++11'
+let g:syntastic_cpp_compiler_options = '-std=c++14'
 let g:syntastic_python_python_exec = 'python3'
 " vim-airline
 set laststatus=2
