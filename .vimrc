@@ -7,12 +7,11 @@ filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin('~/.vim/bundle')
 
-""" Unix specific settings
+""" OS specific settings
 if has('unix')
-  " Linux (Ubuntu) specific
   if system('uname')=~'Linux'
-    " This line should not be removed as it ensures that various options are
-    " properly set to work with the Vim-related packages available in Debian
+    " Ensures that various options are properly set to work with the
+    " Vim-related packages available in Debian
     runtime! debian.vim
 
     set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
@@ -21,10 +20,7 @@ if has('unix')
   endif
 
   let g:airline_powerline_fonts = 1
-endif
-
-""" Windows specific settings
-if has('win32')
+elseif has('win32')
   set guifont=Source_Code_Pro:h9
 endif
 
