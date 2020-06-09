@@ -215,10 +215,10 @@ nnoremap Q @q
 nnoremap Y y$
 nnoremap zh 80zh
 nnoremap zl 80zl
+vnoremap <Space> zf
 sunmap b
 sunmap e
 sunmap w
-vnoremap <Space> zf
 
 """ Leader bindings
 nnoremap <Leader>cd :cd%:p:h<CR>

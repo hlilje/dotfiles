@@ -1,3 +1,5 @@
+" Minimal .vimrc for Vim emulators
+
 set autoindent
 set clipboard^=unnamed
 set cursorline
@@ -29,6 +31,7 @@ nnoremap <Tab> :tabnext<CR>
 nnoremap <S-Tab> :tabprevious<CR>
 nnoremap <silent> <Space> za<CR>
 vnoremap <Space> zf
+
 nnoremap <Leader>fa ggVG=
 nnoremap <Leader>dw :%s/\s\+$//<CR>
 nnoremap <Leader>nn :nohlsearch<CR>
