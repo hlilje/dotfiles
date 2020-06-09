@@ -8,18 +8,14 @@ set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin('~/.vim/bundle')
 
 """ OS specific settings
-if has('unix')
-  if system('uname')=~'Linux'
+if has('macunix')
+  set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+elseif has('unix')
     " Ensures that various options are properly set to work with the
     " Vim-related packages available in Debian
     runtime! debian.vim
 
     set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
-  else
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h12
-  endif
-
-  let g:airline_powerline_fonts = 1
 elseif has('win32')
   set guifont=Source_Code_Pro:h9
 endif
@@ -56,6 +52,7 @@ filetype plugin indent on
 
 """ Settings
 behave mswin
+
 autocmd FileType css setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType go setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd FileType html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
@@ -64,9 +61,12 @@ autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType sass setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType scss setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType vim setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
+
 colorscheme molokai
+
 let mapleader = ','
 let $LANG = 'en_GB'
+
 set encoding=utf-8
 set langmenu=en_GB.UTF-8
 set autoindent copyindent smartindent
@@ -85,7 +85,6 @@ set hlsearch ignorecase smartcase
 set showmatch
 set listchars=tab:>-,trail:·,eol:$,extends:>,precedes:<,nbsp:_
 set nobackup nowritebackup noswapfile
-set noerrorbells visualbell t_vb= " Set the visual bell to do nothing
 set nospell spelllang=en_gb
 set scrolloff=8 sidescrolloff=4
 set textwidth=0 shiftwidth=4
@@ -94,6 +93,7 @@ set nowrap wrapmargin=0
 set linebreak
 set omnifunc=syntaxcomplete#Complete
 set wildmode=list:full
+set belloff=all
 
 """ Plugin settings
 " CtrlP
@@ -112,6 +112,7 @@ let g:syntastic_python_python_exec = 'python3'
 " vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 " vim-go
 let g:go_fmt_autosave = 0
 

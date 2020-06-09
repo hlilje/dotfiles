@@ -28,12 +28,6 @@ source $ZSH/oh-my-zsh.sh
 # Add substring history search
 source $ZSH/plugins/history-substring-search/history-substring-search.zsh
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/hlilje/google-cloud-sdk/path.zsh.inc' ]; then . '/home/hlilje/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/hlilje/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/hlilje/google-cloud-sdk/completion.zsh.inc'; fi
-
 ######## Exports ########
 # Enable 256 colours for terminal
 export TERM=xterm-256color
@@ -66,29 +60,6 @@ set -o vi
 unsetopt BEEP
 
 ######## Aliases ########
-if [[ "$OS" == 'Linux' ]]; then
-    # apt aliases
-    alias autoremove="sudo apt autoremove"
-    alias clean="sudo apt clean"
-    alias dist-upgrade="sudo apt dist-upgrade"
-    alias install="sudo apt install"
-    alias purge="sudo apt purge"
-    alias remove="sudo apt remove"
-    alias search="sudo apt search"
-    alias update="sudo apt update"
-    alias upgrade="sudo apt upgrade"
-elif [[ "$OS" == 'Darwin' ]]; then
-    # Brew aliases
-    alias doctor="brew doctor"
-    alias cleanup="brew cleanup"
-    alias install="brew install"
-    alias list="brew list"
-    alias remove="brew remove"
-    alias search="brew search"
-    alias update="brew update"
-    alias upgrade="brew upgrade"
-fi
-
 # Exit all tmux sessions quickly
 alias exitall="tmux kill-server"
 
