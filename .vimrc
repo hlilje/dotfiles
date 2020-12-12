@@ -2,14 +2,31 @@
 runtime! defaults.vim
 runtime! macros/matchit.vim
 
-""" Init Vundle
-filetype off
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin('~/.vim/bundle')
+""" Specify vim-plug directory
+call plug#begin('~/.vim/plugged')
+
+""" vim-plug plugins
+Plug 'Raimondi/delimitMate'
+Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-airline'
+Plug 'ervandew/supertab'
+Plug 'kien/ctrlp.vim'
+Plug 'kshenoy/vim-signature'
+Plug 'matze/vim-move'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'vim-scripts/a.vim'
+
+Plug 'tomasr/molokai'
+
+""" Initialize vim-plug plugin system
+call plug#end()
 
 """ OS specific settings
 if has('macunix')
-  set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+    set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 elseif has('unix')
     " Ensures that various options are properly set to work with the
     " Vim-related packages available in Debian
@@ -17,50 +34,16 @@ elseif has('unix')
 
     set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
 elseif has('win32')
-  set guifont=Source_Code_Pro:h9
+    set guifont=Source_Code_Pro:h9
 endif
-
-""" Vundle bundles
-Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'airblade/vim-gitgutter'
-Plugin 'bkad/CamelCaseMotion'
-Plugin 'bling/vim-airline'
-Plugin 'ervandew/supertab'
-Plugin 'fatih/vim-go'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'kien/ctrlp.vim'
-Plugin 'kshenoy/vim-signature'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'majutsushi/tagbar'
-Plugin 'matze/vim-move'
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/a.vim'
-Plugin 'Yggdroot/indentLine'
-
-Plugin 'tomasr/molokai'
-
-" Required after loading plugins
-call vundle#end()
-filetype plugin indent on
 
 """ Settings
 behave mswin
 
 autocmd FileType css setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-autocmd FileType go setlocal noexpandtab tabstop=4 softtabstop=4 shiftwidth=4
 autocmd FileType html setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-autocmd FileType php setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-autocmd FileType ruby setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType sass setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType scss setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
-autocmd FileType vim setlocal expandtab tabstop=2 softtabstop=2 shiftwidth=2
 
 colorscheme molokai
 
@@ -96,25 +79,14 @@ set wildmode=list:full
 set belloff=all
 
 """ Plugin settings
-" CtrlP
-let g:ctrlp_cmd = 'CtrlPBuffer'
-" EasyMotion
-let g:EasyMotion_smartcase = 1
 " indentLine
 let g:indentLine_faster = 1
 " Molokai
 let g:rehash256 = 1
-" NERDTree(Tabs)
-let g:nerdtree_tabs_open_on_gui_startup = 0
-" Syntastic
-let g:syntastic_cpp_compiler_options = '-std=c++14'
-let g:syntastic_python_python_exec = 'python3'
 " vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-" vim-go
-let g:go_fmt_autosave = 0
 
 """ Custom functions
 " Remembering and restoring gVim's window size and position
@@ -122,63 +94,63 @@ let g:screen_size_restore_pos = 1
 let g:screen_size_by_vim_instance = 1
 
 if has('gui_running')
-  function! ScreenFilename()
-    if has('win32')
-      return $HOME.'\_vimsize'
-    else
-      return $HOME.'/.vimsize'
-    endif
-  endfunction
-
-  function! ScreenRestore()
-    let f = ScreenFilename()
-    if has('gui_running') && g:screen_size_restore_pos && filereadable(f)
-      let vim_instance = g:screen_size_by_vim_instance == 1 ? v:servername : 'GVIM'
-      for line in readfile(f)
-        let sizepos = split(line)
-        if len(sizepos) == 5 && sizepos[0] == vim_instance
-          silent! execute 'set columns='.sizepos[1].' lines='.sizepos[2]
-          silent! execute 'winpos '.sizepos[3]." ".sizepos[4]
-          return
+    function! ScreenFilename()
+        if has('win32')
+            return $HOME.'\_vimsize'
+        else
+            return $HOME.'/.vimsize'
         endif
-      endfor
-    endif
-  endfunction
+    endfunction
 
-  function! ScreenSave()
-    if has('gui_running') && g:screen_size_restore_pos
-      let vim_instance = g:screen_size_by_vim_instance == 1 ? v:servername : 'GVIM'
-      let data = vim_instance . ' ' . &columns . ' ' . &lines . ' ' .
-          \ (getwinposx() < 0 ? 0 :getwinposx()) . ' ' .
-          \ (getwinposy() < 0 ? 0 :getwinposy())
-      let f = ScreenFilename()
-      if filereadable(f)
-        let lines = readfile(f)
-        call filter(lines, "v:val !~ '^" . vim_instance . "\\>'")
-        call add(lines, data)
-      else
-        let lines = [data]
-      endif
-      call writefile(lines, f)
-    endif
-  endfunction
+    function! ScreenRestore()
+        let f = ScreenFilename()
+        if has('gui_running') && g:screen_size_restore_pos && filereadable(f)
+            let vim_instance = g:screen_size_by_vim_instance == 1 ? v:servername : 'GVIM'
+            for line in readfile(f)
+                let sizepos = split(line)
+                if len(sizepos) == 5 && sizepos[0] == vim_instance
+                    silent! execute 'set columns='.sizepos[1].' lines='.sizepos[2]
+                    silent! execute 'winpos '.sizepos[3]." ".sizepos[4]
+                    return
+                endif
+            endfor
+        endif
+    endfunction
 
-  if !exists('g:screen_size_restore_pos')
-    let g:screen_size_restore_pos = 1
-  endif
-  if !exists('g:screen_size_by_vim_instance')
-    let g:screen_size_by_vim_instance = 1
-  endif
-  autocmd VimEnter * if g:screen_size_restore_pos == 1 | call ScreenRestore() | wincmd = | endif
-  autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call ScreenSave() | endif
+    function! ScreenSave()
+        if has('gui_running') && g:screen_size_restore_pos
+            let vim_instance = g:screen_size_by_vim_instance == 1 ? v:servername : 'GVIM'
+            let data = vim_instance . ' ' . &columns . ' ' . &lines . ' ' .
+                        \ (getwinposx() < 0 ? 0 :getwinposx()) . ' ' .
+                        \ (getwinposy() < 0 ? 0 :getwinposy())
+            let f = ScreenFilename()
+            if filereadable(f)
+                let lines = readfile(f)
+                call filter(lines, "v:val !~ '^" . vim_instance . "\\>'")
+                call add(lines, data)
+            else
+                let lines = [data]
+            endif
+            call writefile(lines, f)
+        endif
+    endfunction
+
+    if !exists('g:screen_size_restore_pos')
+        let g:screen_size_restore_pos = 1
+    endif
+    if !exists('g:screen_size_by_vim_instance')
+        let g:screen_size_by_vim_instance = 1
+    endif
+    autocmd VimEnter * if g:screen_size_restore_pos == 1 | call ScreenRestore() | wincmd = | endif
+    autocmd VimLeavePre * if g:screen_size_restore_pos == 1 | call ScreenSave() | endif
 endif
 
 function! g:ToggleColorColumn()
-  if &colorcolumn != ''
-    setlocal colorcolumn&
-  else
-    setlocal colorcolumn=80
-  endif
+    if &colorcolumn != ''
+        setlocal colorcolumn&
+    else
+        setlocal colorcolumn=80
+    endif
 endfunction
 
 """ Commands
@@ -199,9 +171,6 @@ map <C-l> <C-w>l
 map <F2> :mksession! ~/.vimsession <CR>
 map <F3> :source ~/.vimsession <CR>
 map <F9> :set wrap!<CR>
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-map <silent> w <Plug>CamelCaseMotion_w
 nmap <C-S-Tab> :tabp<CR>
 nmap <C-Tab> :tabn<CR>
 nmap <C-t> :tabnew<CR>
@@ -216,9 +185,6 @@ nnoremap Y y$
 nnoremap zh 80zh
 nnoremap zl 80zl
 vnoremap <Space> zf
-sunmap b
-sunmap e
-sunmap w
 
 """ Leader bindings
 nnoremap <Leader>cd :cd%:p:h<CR>
@@ -228,8 +194,7 @@ nnoremap <Leader>dw :%s/\s\+$//<CR>
 nnoremap <Leader>ev :e $MYVIMRC<CR>
 nnoremap <Leader>fa ggVG=
 nnoremap <Leader>nn :nohlsearch<CR>
-nnoremap <Leader>nt :NERDTreeTabsToggle<CR>
+nnoremap <Leader>nt :NERDTreeToggle<CR>
 nnoremap <Leader>sv :w<CR> :source $MYVIMRC<CR>
-nnoremap <Leader>tb :TagbarToggle<CR>
 nnoremap <silent> <Leader>cc :call g:ToggleColorColumn()<CR>
 nnoremap <silent> <Leader>sw :set nolist!<CR>
