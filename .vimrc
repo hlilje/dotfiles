@@ -34,7 +34,7 @@ elseif has('unix')
 
     set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
 elseif has('win32')
-    set guifont=Source_Code_Pro:h9
+    set guifont=Source_Code_Pro_for_Powerline:h9
 endif
 
 """ Settings
