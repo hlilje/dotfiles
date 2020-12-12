@@ -16,6 +16,7 @@ Plug 'kshenoy/vim-signature'
 Plug 'matze/vim-move'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/a.vim'
 
