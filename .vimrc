@@ -81,6 +81,14 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 """ Custom functions
+function! g:MaximiseWindow()
+    if has('gui_running')
+        :set lines=999 columns=999
+        :normal =
+        :winpos 0 0
+    endif
+endfunction
+
 function! g:ToggleColorColumn()
     if &colorcolumn != ''
         setlocal colorcolumn&
@@ -106,6 +114,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <F2> :mksession! ~/.vimsession <CR>
 map <F3> :source ~/.vimsession <CR>
+map <F5> :call g:MaximiseWindow() <CR>
 map <F9> :set wrap!<CR>
 nmap <C-S-Tab> :tabp<CR>
 nmap <C-Tab> :tabn<CR>
