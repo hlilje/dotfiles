@@ -35,11 +35,11 @@ let mapleader = ','
 let $LANG = 'en_GB'
 
 if has('macunix')
-    set guifont=Source\ Code\ Pro\ for\ Powerline:h12
+    set guifont=Source\ Code\ Pro:h12
 elseif has('unix')
-    set guifont=Source\ Code\ Pro\ for\ Powerline\ 10
+    set guifont=Source\ Code\ Pro\ 10
 elseif has('win32')
-    set guifont=Source_Code_Pro_for_Powerline:h9
+    set guifont=Source_Code_Pro:h9
 endif
 
 set encoding=utf-8
@@ -78,7 +78,6 @@ let g:rehash256 = 1
 " vim-airline
 set laststatus=2
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
 
 """ Custom functions
 function! g:MaximiseWindow()
