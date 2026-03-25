@@ -73,6 +73,7 @@ set belloff=all
 """ Plugin settings
 " indentLine
 let g:indentLine_faster = 1
+let g:indentLine_fileTypeExclude = ['json']
 " Molokai
 let g:rehash256 = 1
 " vim-airline
